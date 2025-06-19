@@ -1,113 +1,129 @@
-# Portfolio Kevine - PWA avec CMS Headless
+# ⚡️ Portfolio Kevine – PWA Moderne avec CMS Headless
 
-## 🚀 Configuration Supabase (Optionnelle)
+Un portfolio Next.js optimisé pour la performance, capable de fonctionner avec ou sans CMS, grâce à une intégration facultative de **Supabase**.
 
-Le portfolio fonctionne en mode **fallback** avec des données statiques si Supabase n'est pas configuré.
+---
 
-### Configuration CMS Dynamique
+## 🧩 Modes de Fonctionnement
 
-1. **Créer un projet Supabase** : [supabase.com](https://supabase.com)
+### 🔹 Mode *Fallback* (par défaut)
+> [!TIP] Idéal pour un déploiement rapide sans configuration externe.
 
-2. **Configurer les variables d'environnement** :
-\`\`\`bash
-# .env.local
-NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
-\`\`\`
+- ✅ Données statiques intégrées  
+- ✅ Aucune configuration nécessaire  
+- ✅ Temps de chargement optimal  
+- ❌ Contenu non modifiable dynamiquement  
 
-3. **Exécuter les scripts SQL** :
-   - Copier le contenu de `scripts/create-database-schema.sql`
-   - Coller dans l'éditeur SQL de Supabase
-   - Exécuter le script
-   - Répéter avec `scripts/seed-database.sql`
+### 🔸 Mode *CMS Headless* (via Supabase)
+> [!IMPORTANT] Nécessite une configuration Supabase.
+
+- ✅ Contenu éditable depuis l'interface Supabase  
+- ✅ Support du cache et des données dynamiques  
+- ✅ Génération automatique des types TypeScript  
+- ✅ Intégration à l’interface d’administration Supabase  
+
+---
+
+## ⚙️ Configuration de Supabase (Optionnelle)
+
+1. **Créer un projet** : [https://supabase.com](https://supabase.com)  
+2. **Configurer `.env.local`** :
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co  
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key  
+```
+
+3. **Initialiser la base de données** :
+   - Copier le contenu de `scripts/create-database-schema.sql`  
+   - Le coller dans l’éditeur SQL de Supabase  
+   - Lancer l'exécution  
+   - Répéter avec `scripts/seed-database.sql` pour les données d’exemple  
 
 4. **Générer les types TypeScript** :
-\`\`\`bash
+
+```bash
 npm run db:types
-\`\`\`
+```
 
-## 🔄 Modes de Fonctionnement
+---
 
-### Mode Fallback (Par défaut)
-- ✅ Fonctionne sans configuration
-- ✅ Données statiques intégrées
-- ✅ Performance optimale
-- ❌ Contenu non modifiable
+## 🧠 Contenu Géré (via Supabase)
 
-### Mode CMS (Avec Supabase)
-- ✅ Contenu dynamique modifiable
-- ✅ Interface d'administration
-- ✅ Cache intelligent
-- ✅ Types TypeScript sûrs
+- **Compétences** : nom, catégorie, niveau, icône  
+- **Projets** : titre, description, techno, lien  
+- **Parcours** : timeline professionnelle  
+- **Témoignages** : clients, formateurs, partenaires  
+- **Paramètres** : textes personnalisables du site  
 
-## 📊 Gestion du Contenu
+---
 
-### Interface Supabase
-- **Table Editor** : Modification directe des données
-- **SQL Editor** : Requêtes personnalisées
-- **API Docs** : Documentation automatique
+## 💻 Développement
 
-### Données Gérées
-- **Compétences** : Niveaux, catégories, icônes
-- **Projets** : Descriptions, technologies, liens
-- **Parcours** : Timeline professionnelle
-- **Témoignages** : Avis clients/formateurs
-- **Paramètres** : Textes configurables
-
-## 🛠️ Développement
-
-\`\`\`bash
-# Installation
+```bash
+# Installation des dépendances
 npm install
 
-# Développement
+# Démarrage du serveur local
 npm run dev
 
-# Build
+# Build production
 npm run build
 
-# Types Supabase (si configuré)
+# Regénération des types Supabase
 npm run db:types
-\`\`\`
+```
 
-## 📱 PWA Features
+---
 
-- ✅ Installation native
-- ✅ Mode hors ligne
-- ✅ Notifications push
-- ✅ Cache intelligent
-- ✅ Raccourcis dynamiques
+## 📱 Fonctionnalités PWA
 
-## 🔧 Architecture
+- ✅ Installation sur appareil (mobile ou desktop)  
+- ✅ Mode hors ligne grâce au cache  
+- ✅ Notifications push (si activées)  
+- ✅ Raccourcis applicatifs dynamiques  
+- ✅ Mécanismes de fallback intelligents  
 
-\`\`\`
+---
+
+## 🧱 Architecture
+
+```
 ├── lib/
-│   ├── supabase.ts      # Configuration Supabase
-│   └── cms.ts           # Logique CMS avec fallback
+│   ├── supabase.ts         # Client Supabase
+│   └── cms.ts              # Logique fallback / CMS
 ├── hooks/
-│   └── use-cms-data.ts  # Hooks réactifs pour les données
+│   └── use-cms-data.ts     # Hook de récupération de contenu
 ├── types/
-│   ├── database.ts      # Types générés depuis Supabase
-│   └── cms.ts           # Types métier
+│   ├── database.ts         # Types Supabase (auto-générés)
+│   └── cms.ts              # Types fonctionnels métiers
 ├── scripts/
 │   ├── create-database-schema.sql
 │   └── seed-database.sql
 └── components/
     └── ui/
-        └── cms-status.tsx  # Indicateur de statut CMS
-\`\`\`
+        └── cms-status.tsx  # Affichage du statut CMS (fallback ou dynamique)
+```
 
-## 🚨 Gestion d'Erreurs
+---
 
-- **Variables manquantes** : Fallback automatique
-- **Erreurs réseau** : Cache + données statiques
-- **Données corrompues** : Validation + fallback
-- **Timeout** : Retry automatique
+## 🛡️ Gestion des Erreurs
 
-## 🎯 Avantages
+> [!WARNING] Le système bascule automatiquement sur les données statiques si une erreur survient.
 
-1. **Résilience** : Fonctionne toujours, même sans CMS
-2. **Performance** : Cache intelligent + CDN
-3. **Flexibilité** : Basculement transparent
-4. **Sécurité** : Validation côté client et serveur
-5. **DX** : Types TypeScript complets
+- 🔍 Variables d’environnement manquantes : mode fallback  
+- 🌐 Erreurs réseau : repli sur données en cache  
+- 🧪 Données invalides : validation + fallback  
+- ⏱️ Timeout ou latence excessive : retry automatique  
+
+---
+
+## 🎯 Pourquoi ce choix technique ?
+
+> [!NOTE] Ce portfolio n’est pas juste une vitrine. Il démontre un équilibre entre **résilience**, **flexibilité**, et **expérience développeur**.
+
+1. **Résilience** : Fonctionne sans backend  
+2. **Performance** : Données locales + cache  
+3. **Flexibilité** : CMS activable à tout moment  
+4. **Sécurité** : Validation et typage fort  
+5. **Developer Experience** : Types générés, hooks modulaires, architecture claire
