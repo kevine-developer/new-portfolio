@@ -1,0 +1,124 @@
+{
+  "name": "Kevine - Développeur Fullstack JS",
+  "short_name": "Kevine.dev",
+  "description": "Portfolio de Kevine, développeur fullstack JS en recherche d'alternance. Créateur de DevEnGalère, passionné d'éco-conception.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#10b981",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "fr",
+  "categories": ["portfolio", "developer", "technology"],
+  "screenshots": [
+    {
+      "src": "/screenshots/desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Portfolio desktop"
+    },
+    {
+      "src": "/screenshots/mobile.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Portfolio mobile"
+    }
+  ],
+  "icons": [
+    {
+      "src": "/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Mes Projets",
+      "short_name": "Projets",
+      "description": "Voir mes projets marquants",
+      "url": "/#projets",
+      "icons": [
+        {
+          "src": "/icons/projects-icon.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Contact",
+      "short_name": "Contact",
+      "description": "Me contacter pour une alternance",
+      "url": "/#contact",
+      "icons": [
+        {
+          "src": "/icons/contact-icon.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "DevEnGalère",
+      "short_name": "DevEnGalère",
+      "description": "Contenu tech humoristique",
+      "url": "/devengalere",
+      "icons": [
+        {
+          "src": "/icons/devengalere-icon.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "web",
+      "url": "https://kevine.dev"
+    }
+  ],
+  "prefer_related_applications": false
+}
