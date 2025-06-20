@@ -82,6 +82,32 @@ export interface SocialLink {
   updated_at: string
 }
 
+// Nouvelle interface pour les critères de recherche d'alternance
+export interface AlternanceSearchCriterion {
+  id: string
+  icon: string
+  label: string
+  value: string
+  color: string
+  order_index: number
+  is_active: boolean
+  created_at: string
+  updated_at: string
+}
+
+// Nouvelle interface pour les forces/atouts de l'alternant
+export interface AlternanceStrength {
+  id: string
+  icon: string
+  label: string
+  value: string
+  color: string
+  order_index: number
+  is_active: boolean
+  created_at: string
+  updated_at: string
+}
+
 // Types pour les paramètres du site
 export interface HeroSettings {
   typing_texts: string[]

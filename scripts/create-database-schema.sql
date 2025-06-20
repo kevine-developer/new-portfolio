@@ -88,6 +88,32 @@ CREATE TABLE site_settings (
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
+-- Nouvelle table pour les critères de recherche d'alternance
+CREATE TABLE alternance_search_criteria (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  icon VARCHAR(50) NOT NULL,
+  label VARCHAR(100) NOT NULL,
+  value TEXT NOT NULL,
+  color VARCHAR(100) NOT NULL,
+  order_index INTEGER DEFAULT 0,
+  is_active BOOLEAN DEFAULT true,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- Nouvelle table pour les forces/atouts de l'alternant
+CREATE TABLE alternance_strengths (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  icon VARCHAR(50) NOT NULL,
+  label VARCHAR(100) NOT NULL,
+  value TEXT NOT NULL,
+  color VARCHAR(100) NOT NULL,
+  order_index INTEGER DEFAULT 0,
+  is_active BOOLEAN DEFAULT true,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
 -- Fonction pour mettre à jour automatiquement updated_at
 CREATE OR REPLACE FUNCTION update_updated_at_column()
 RETURNS TRIGGER AS $$
@@ -104,6 +130,9 @@ CREATE TRIGGER update_timeline_items_updated_at BEFORE UPDATE ON timeline_items 
 CREATE TRIGGER update_testimonials_updated_at BEFORE UPDATE ON testimonials FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
 CREATE TRIGGER update_social_links_updated_at BEFORE UPDATE ON social_links FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
 CREATE TRIGGER update_site_settings_updated_at BEFORE UPDATE ON site_settings FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+CREATE TRIGGER update_alternance_search_criteria_updated_at BEFORE UPDATE ON alternance_search_criteria FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+CREATE TRIGGER update_alternance_strengths_updated_at BEFORE UPDATE ON alternance_strengths FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+
 
 -- Index pour les performances
 CREATE INDEX idx_skills_category ON skills(category);
@@ -114,6 +143,9 @@ CREATE INDEX idx_timeline_type ON timeline_items(type);
 CREATE INDEX idx_timeline_active ON timeline_items(is_active);
 CREATE INDEX idx_testimonials_active ON testimonials(is_active);
 CREATE INDEX idx_social_links_active ON social_links(is_active);
+CREATE INDEX idx_alternance_search_criteria_active ON alternance_search_criteria(is_active);
+CREATE INDEX idx_alternance_strengths_active ON alternance_strengths(is_active);
+
 
 -- Politiques RLS (Row Level Security)
 ALTER TABLE skills ENABLE ROW LEVEL SECURITY;
@@ -122,6 +154,9 @@ ALTER TABLE timeline_items ENABLE ROW LEVEL SECURITY;
 ALTER TABLE testimonials ENABLE ROW LEVEL SECURITY;
 ALTER TABLE social_links ENABLE ROW LEVEL SECURITY;
 ALTER TABLE site_settings ENABLE ROW LEVEL SECURITY;
+ALTER TABLE alternance_search_criteria ENABLE ROW LEVEL SECURITY;
+ALTER TABLE alternance_strengths ENABLE ROW LEVEL SECURITY;
+
 
 -- Politiques de lecture publique
 CREATE POLICY "Allow public read access" ON skills FOR SELECT USING (true);
@@ -130,3 +165,5 @@ CREATE POLICY "Allow public read access" ON timeline_items FOR SELECT USING (tru
 CREATE POLICY "Allow public read access" ON testimonials FOR SELECT USING (true);
 CREATE POLICY "Allow public read access" ON social_links FOR SELECT USING (true);
 CREATE POLICY "Allow public read access" ON site_settings FOR SELECT USING (true);
+CREATE POLICY "Allow public read access" ON alternance_search_criteria FOR SELECT USING (true);
+CREATE POLICY "Allow public read access" ON alternance_strengths FOR SELECT USING (true);

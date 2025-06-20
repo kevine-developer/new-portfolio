@@ -18,8 +18,14 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
+import { useAlternanceSearchCriteria, useAlternanceStrengths } from "@/hooks/use-cms-data";
+
 
 export function AlternanceSection() {
+
+  const {data:AlternanceSearchCriterion, loading:searchLoading, error:searchError } = useAlternanceSearchCriteria()
+  
+ const {data:AlternanceStrength, loading:strengthLoading, error:strengthError } = useAlternanceStrengths()
   const searchCriteria = [
     {
       icon: Briefcase,
@@ -105,7 +111,7 @@ export function AlternanceSection() {
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-4">
-              {searchCriteria.map((item, index) => (
+              {AlternanceSearchCriterion.map((item, index) => (
                 <motion.div
                   key={item.label}
                   initial={{ opacity: 0, x: -20 }}
@@ -144,7 +150,7 @@ export function AlternanceSection() {
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-4">
-              {strengths.map((item, index) => (
+              {AlternanceStrength.map((item, index) => (
                 <motion.div
                   key={item.label}
                   initial={{ opacity: 0, x: 20 }}
