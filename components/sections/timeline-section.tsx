@@ -6,7 +6,6 @@ import { SectionHeader } from "@/components/ui/section-header"
 import { AnimatedCard } from "@/components/ui/animated-card"
 import { Badge } from "@/components/ui/badge"
 import { CardContent } from "@/components/ui/card"
-import { TIMELINE } from "@/constants/data"
 import type { TimelineItem } from "@/types"
 import { useTimelineItems } from "@/hooks/use-cms-data"
 
@@ -66,11 +65,55 @@ function TimelineItemComponent({ item, index }: TimelineItemProps) {
     </motion.div>
   )
 }
+function TimelineLoading() {
+  return (
+    <div className="space-y-6 sm:space-y-8">
+      {Array.from({ length: 3 }).map((_, index) => ( // Adjust length based on how many loading skeletons you want to show
+        <div key={index} className="relative flex items-start space-x-4 sm:space-x-6 animate-pulse">
+          {/* Timeline dot skeleton */}
+          <div className="flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 bg-slate-800 rounded-full"></div>
+
+          {/* Content skeleton */}
+          <div className="flex-1 bg-slate-800 rounded-lg p-4 md:p-6 md:w-[40em]">
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3 space-y-2 sm:space-y-0">
+              <div className="flex-1">
+                <div className="h-6 bg-slate-700 rounded w-3/4 mb-2"></div>
+                <div className="h-4 bg-slate-700 rounded w-1/2"></div>
+              </div>
+              <div className="flex flex-col sm:items-end space-y-2">
+                <div className="h-5 bg-slate-700 rounded w-20"></div>
+              </div>
+            </div>
+            <div className="h-4 bg-slate-700 rounded mb-3 w-full"></div>
+            <div className="h-4 bg-slate-700 rounded w-5/6"></div>
+
+            <div className="flex items-center justify-between mt-4">
+              <div className="h-5 bg-slate-700 rounded w-24"></div>
+              <div className="h-5 bg-slate-700 rounded w-20"></div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
 
 export function TimelineSection() {
+  const { data: timelineItems, loading, error } = useTimelineItems()
 
-  
-  const {data : TimelineItem,  loading, error} = useTimelineItems()
+  if (error) {
+    return (
+      <Section id="parcours" containerSize="lg">
+        <SectionHeader
+          title="Mon Parcours"
+          highlight="Parcours"
+          subtitle="De la formation aux projets concrets, voici mon évolution"
+        />
+        <div className="text-red-500 text-center">Une erreur s'est produite lors du chargement de votre parcours. Veuillez réessayer plus tard.</div>
+      </Section>
+    )
+  }
+
   return (
     <Section id="parcours" containerSize="lg">
       <SectionHeader
@@ -83,11 +126,15 @@ export function TimelineSection() {
         {/* Timeline line */}
         <div className="absolute left-6 sm:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-emerald-500 via-blue-500 to-purple-500" />
 
-        <div className="space-y-6 sm:space-y-8">
-          {TimelineItem.map((item, index) => (
-            <TimelineItemComponent key={item.id} item={item} index={index} />
-          ))}
-        </div>
+        {loading ? (
+          <TimelineLoading />
+        ) : (
+          <div className="space-y-6 sm:space-y-8">
+            {timelineItems.map((item, index) => (
+              <TimelineItemComponent key={item.id} item={item} index={index} />
+            ))}
+          </div>
+        )}
       </div>
     </Section>
   )

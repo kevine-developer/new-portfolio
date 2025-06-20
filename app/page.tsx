@@ -29,11 +29,12 @@ export default function ModernPortfolio() {
         <Navigation />
 
         {/* Sections */}
-        <HeroSection />
+        <HeroSection /> 
+        <AlternanceSection />
         <SkillsSection />
         <ProjectsSection />
         <TimelineSection /> 
-         <AlternanceSection />
+        
         <DevEngalereSection />
       
         <ContactSection />

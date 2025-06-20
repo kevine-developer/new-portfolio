@@ -10,7 +10,7 @@ export interface Project {
   id: string
   title: string
   description: string
-  longDescription: string
+  long_description: string
   tech: string[]
   type: "Production" | "Freelance" | "Personnel"
   status: string
@@ -18,7 +18,7 @@ export interface Project {
   color: string
   github: string
   demo: string
-  metrics: string
+  metrics?: string
   featured?: boolean
 }
 

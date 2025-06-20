@@ -20,14 +20,14 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://kevine.dev"),
+  metadataBase: new URL("https://kevine-portfolio.vercel.app/"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "Kevine - Développeur Fullstack JS",
     description: "Portfolio de Kevine, développeur fullstack JS en recherche d'alternance",
-    url: "https://kevine.dev",
+    url: "https://kevine-portfolio.vercel.app/",
     siteName: "Kevine.dev",
     images: [
       {

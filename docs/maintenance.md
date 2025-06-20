@@ -11,7 +11,7 @@ echo "🔍 Vérification quotidienne du portfolio..."
 
 # 1. Statut du site
 echo "📡 Vérification du statut..."
-curl -s -o /dev/null -w "%{http_code}" https://kevine.dev
+curl -s -o /dev/null -w "%{http_code}" https://kevine-portfolio.vercel.app/
 if [ $? -eq 0 ]; then
     echo "✅ Site accessible"
 else
@@ -21,7 +21,7 @@ fi
 
 # 2. Performance
 echo "⚡ Test de performance..."
-npx lighthouse https://kevine.dev --only-categories=performance --quiet
+npx lighthouse https://kevine-portfolio.vercel.app/ --only-categories=performance --quiet
 
 # 3. Erreurs JavaScript
 echo "🐛 Vérification des erreurs..."
@@ -197,7 +197,7 @@ echo "🔍 Audit mensuel complet..."
 
 # 1. Audit de performance
 echo "⚡ Audit de performance..."
-npx lighthouse https://kevine.dev --output html --output-path reports/lighthouse-$(date +%Y%m).html
+npx lighthouse https://kevine-portfolio.vercel.app/ --output html --output-path reports/lighthouse-$(date +%Y%m).html
 
 # 2. Audit de sécurité
 echo "🛡️ Audit de sécurité..."
@@ -205,11 +205,11 @@ npx snyk test --json > reports/security-$(date +%Y%m).json
 
 # 3. Audit d'accessibilité
 echo "♿ Audit d'accessibilité..."
-npx axe-cli https://kevine.dev --save reports/accessibility-$(date +%Y%m).json
+npx axe-cli https://kevine-portfolio.vercel.app/ --save reports/accessibility-$(date +%Y%m).json
 
 # 4. Audit SEO
 echo "🔍 Audit SEO..."
-npx lighthouse https://kevine.dev --only-categories=seo --output json --output-path reports/seo-$(date +%Y%m).json
+npx lighthouse https://kevine-portfolio.vercel.app/ --only-categories=seo --output json --output-path reports/seo-$(date +%Y%m).json
 
 # 5. Analyse du bundle
 echo "📦 Analyse du bundle..."

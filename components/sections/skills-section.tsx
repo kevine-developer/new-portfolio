@@ -16,10 +16,10 @@ interface SkillCardProps {
 function SkillCard({ skill, index }: SkillCardProps) {
   return (
     <AnimatedCard delay={index * 0.1}>
-      <CardContent className="p-2 sm:p-6">
+      <CardContent className="p-2 sm:p-4">
         <div className="flex items-center justify-between mb-3 sm:mb-4">
           <div className="flex items-center space-x-2 sm:space-x-3">
-            <span className="text-xl sm:text-2xl flex-shrink-0">{skill.icon}</span>
+            {/* <span className="text-xl sm:text-2xl flex-shrink-0">{skill.icon}</span> */}
             <div className="min-w-0">
               <h3 className="font-semibold text-white text-sm sm:text-base truncate">{skill.name}</h3>
             </div>
@@ -69,7 +69,7 @@ export function SkillsSection() {
 
   if (error) {
     return (
-      <Section>
+          <Section id="competences" containerSize="lg">
         <SectionHeader
           title="Stack Technique"
           highlight="Technique"
@@ -83,7 +83,7 @@ export function SkillsSection() {
   }
 
   return (
-    <Section>
+        <Section id="competences" containerSize="lg">
       <SectionHeader
         title="Stack Technique"
         highlight="Technique"
@@ -93,7 +93,7 @@ export function SkillsSection() {
       {loading ? (
         <SkillsLoading />
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6">
           {skills.map((skill, index) => (
             <SkillCard key={skill.id} skill={skill} index={index} />
           ))}
