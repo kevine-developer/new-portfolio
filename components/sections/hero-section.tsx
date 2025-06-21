@@ -138,14 +138,18 @@ export function HeroSection() {
                   Parlons alternance
                 </a>
               </Button>
-                <Button
-            variant="outline"
-            size="lg"
-            className="border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-white group"
-          >
-            <Download className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+              
+           <Button
+                variant="outline"
+                size="lg"
+                className="w-full sm:w-auto border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-white group"
+                asChild
+              >
+                <a href="https://drive.google.com/file/d/1UP3EaksVn7VifaTyNuW-sQbCCW2g7IYg/view?usp=sharing">
+                  <Download className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
             Télécharger mon CV
-          </Button>
+                </a>
+              </Button>
             </motion.div>
 
             {/* Info badges */}
@@ -185,7 +189,7 @@ export function HeroSection() {
                   className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-500 via-blue-500 to-purple-500 p-1"
                 >
                   <div className="w-full h-full rounded-full bg-slate-950 flex items-center justify-center">
-                    <div className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl"><Image src="/logo.png" alt="logo" width={50} height={50}/></div>
+                    <div className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl"><Image src="/logo.png" alt="logo" width={140} height={140}/></div>
                   </div>
                 </div>
 
@@ -256,7 +260,7 @@ export function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2 }}
-          className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2"
+          className="absolute  sm:bottom-8 left-1/2 transform -translate-x-1/2"
         >
           <motion.div
             animate={{ y: [0, 10, 0] }}
