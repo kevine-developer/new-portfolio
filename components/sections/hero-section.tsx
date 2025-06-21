@@ -27,7 +27,7 @@ export function HeroSection() {
   ]
 
   return (
-    <section id="acceuil" className="min-h-screen flex items-center justify-center relative pt-16 sm:pt-20">
+    <section id="accueil" className="min-h-screen flex items-center justify-center relative pt-16 sm:pt-20">
       {/* Animated background blobs */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <motion.div

@@ -11,18 +11,6 @@ export default function PWAStatus() {
 
   return (
     <div className="fixed top-20 right-4 z-40 space-y-2">
-      {/* Statut de connexion */}
-      <AnimatePresence>
-        {!isOnline && (
-          <motion.div initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 100 }}>
-            <Badge variant="destructive" className="flex items-center space-x-1">
-              <WifiOff className="w-3 h-3" />
-              <span>Hors ligne</span>
-            </Badge>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
       {/* Statut d'installation */}
       <AnimatePresence>
         {isInstalled && (
@@ -53,7 +41,7 @@ export default function PWAStatus() {
       {/* Indicateur en ligne */}
       <motion.div animate={{ opacity: isOnline ? 1 : 0.3 }} className="flex items-center justify-end">
         <div className="flex items-center space-x-1 text-xs text-slate-400">
-          <Wifi className="w-3 h-3" />
+         {isOnline ?  <Wifi className="w-3 h-3" /> : <WifiOff className="w-3 h-3" />}
           <span>{isOnline ? "En ligne" : "Hors ligne"}</span>
         </div>
       </motion.div>

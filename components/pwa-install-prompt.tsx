@@ -114,7 +114,7 @@ export default function PWAInstallPrompt() {
                 </div>
 
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-sm font-semibold text-white mb-1">Installer Kevine.dev</h3>
+                  <h3 className="text-sm font-semibold text-white mb-1">Installer Kevine_dev</h3>
                   <p className="text-xs text-slate-300 mb-3">
                     {isIOS
                       ? "Ajoutez ce portfolio à votre écran d'accueil pour un accès rapide"

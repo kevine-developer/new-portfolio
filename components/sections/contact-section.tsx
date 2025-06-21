@@ -15,6 +15,7 @@ import { CardContent, CardDescription, CardHeader, CardTitle } from "@/component
 import { Label } from "@/components/ui/label"
 import type { ContactForm } from "@/types"
 import { useSocialLinks } from "@/hooks/use-cms-data"
+import Link from "next/link"
 
 const contactInfo = [
   {
@@ -140,10 +141,10 @@ export function ContactSection() {
                       className={`border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-white group w-full justify-center ${social.color}`}
                       asChild
                     >
-                      <a href={social.url} target="_blank" rel="noopener noreferrer">
-                        {Icon && <Icon className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform" />}
+                      <Link href={social.url} target="_blank" rel="noopener noreferrer" className="text-2xl">
+                        {Icon && <Icon className="w-4 h-4  group-hover:rotate-12 transition-transform" />}
                         {social.name}
-                      </a>
+                      </Link>
                     </Button>
                   </motion.div>
                 </div>

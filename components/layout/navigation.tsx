@@ -73,7 +73,7 @@ export function Navigation() {
               href="/"
               className="text-xl sm:text-2xl font-bold text-foreground hover:text-primary transition-colors"
             >
-               <Image src="/logoTwo.png" alt="Logo" width={150} height={80} />
+                <Image src="/logoTwo.png" alt="Logo"  width={150}   height={80} />
             </Link>
           </motion.div>
 

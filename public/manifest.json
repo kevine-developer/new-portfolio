@@ -1,7 +1,7 @@
 {
-  "name": "Kevine - Développeur Fullstack JS",
+  "name": "Kevine - Développeur Web",
   "short_name": "Kevine.dev",
-  "description": "Portfolio de Kevine, développeur fullstack JS en recherche d'alternance. Créateur de DevEnGalère, passionné d'éco-conception.",
+  "description": "Portfolio de Kevine, développeur Web en recherche d'alternance. Créateur de DevEnGalère, passionné d'éco-conception.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0f172a",
@@ -9,7 +9,7 @@
   "orientation": "portrait-primary",
   "scope": "/",
   "lang": "fr",
-  "categories": ["portfolio", "developer", "technology"],
+  "categories": ["portfolio", "developer", "technology","devengalere","yves narson kevine","narson kevine"],
   "screenshots": [
     {
       "src": "/screenshots/desktop.png",

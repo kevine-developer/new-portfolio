@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Github, ExternalLink, Users } from "lucide-react"
+import { Github, ExternalLink, Users, LucideArrowRightCircle } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { Section } from "@/components/ui/section"
@@ -50,12 +50,6 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4">
             <div className="flex items-center justify-between">
               <div>
-                <Badge
-                  variant="outline"
-                  className={`border-slate-600 bg-gradient-to-r ${project.color} bg-clip-text text-transparent font-semibold mb-2`}
-                >
-                  {project.type}
-                </Badge>
                 <h4 className="font-semibold text-white text-sm sm:text-base">{project.title}</h4>
                 <p className="text-xs sm:text-sm text-slate-300">{project.description}</p>
               </div>
@@ -63,14 +57,14 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                 {project.github && (
                   <Button size="sm" variant="ghost" className="text-white hover:bg-white/20 p-1 sm:p-2" asChild>
                     <Link href={project.github} target="_blank">
-                      <Github className="w-3 h-3 sm:w-4 sm:h-4" />
+                      <Github className="w-4 h-4 sm:w-5 sm:h-5" />
                     </Link>
                   </Button>
                 )}
                 {project.demo && (
                   <Button size="sm" variant="ghost" className="text-white hover:bg-white/20 p-1 sm:p-2" asChild>
                     <Link href={project.demo} target="_blank">
-                      <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
+                      <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5" />
                     </Link>
                   </Button>
                 )}
@@ -84,7 +78,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       <div className={`space-y-4 sm:space-y-6 ${isEven ? "lg:order-last" : "lg:order-first"} order-last`}>
         <div className="space-y-3 sm:space-y-4">
           <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-3">
-            <Badge
+             <Badge
               variant="outline"
               className={`border-slate-700 bg-gradient-to-r ${project.color} bg-clip-text text-transparent font-semibold w-fit`}
             >
@@ -94,7 +88,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           </div>
 
           <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">{project.title}</h3>
-          <p className="text-slate-300 text-sm sm:text-base lg:text-lg leading-relaxed">{project.long_description}</p>
+          <p className="text-slate-300 text-sm sm:text-base lg:text-lg leading-relaxed line-clamp-3">{project.long_description}</p>
 
           {/* Tech stack */}
           <div className="flex flex-wrap gap-2">
@@ -115,31 +109,17 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
 
           {/* Actions */}
           <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
-            {project.github && (
-              <Button
-                variant="outline"
-                size="sm"
-                className="border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-white group w-full sm:w-auto"
-                asChild
-              >
-                <Link href={project.github} target="_blank">
-                  <Github className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform" />
-                  Code source
-                </Link>
-              </Button>
-            )}
-            {project.demo && (
+
               <Button
                 size="sm"
                 className={`bg-gradient-to-r ${project.color} hover:opacity-90 text-white border-0 group w-full sm:w-auto`}
                 asChild
               >
-                <Link href={project.demo} target="_blank">
-                  <ExternalLink className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform" />
-                  Voir le projet
+                <Link href={project.demo} target="_blank" className="mr-2 ">
+                Détails
+                  <LucideArrowRightCircle className="w-4 h-4 group-hover:rotate-12 transition-transform" />
                 </Link>
               </Button>
-            )}
           </div>
         </div>
       </div>
