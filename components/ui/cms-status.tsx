@@ -8,6 +8,8 @@ import { Button } from "@/components/ui/button"
 import { isSupabaseConfigured } from "@/lib/supabase"
 
 export function CMSStatus() {
+  if (process.env.NODE_ENV === "production") return null // ⛔️ Ne rien afficher en prod
+
   const [isConfigured, setIsConfigured] = useState(false)
   const [showStatus, setShowStatus] = useState(true)
 
@@ -43,7 +45,9 @@ export function CMSStatus() {
             <div className="flex-1 min-w-0">
               <div className="flex items-center space-x-2 mb-1">
                 <Settings className="w-4 h-4 text-blue-400" />
-                <span className="text-sm font-medium text-white">{isConfigured ? "CMS Connecté" : "Mode Démo"}</span>
+                <span className="text-sm font-medium text-white">
+                  {isConfigured ? "CMS Connecté" : "Mode Démo"}
+                </span>
               </div>
 
               <p className="text-xs text-slate-300">
