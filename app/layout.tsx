@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Kevine Narson YVES - Développeur Web et mobile | Portfolio",
   description:
-    "Portfolio de Kevine, développeur fullstack JS en recherche d'alternance. Créateur de DevEnGalère, passionné d'éco-conception et de technologies modernes.",
+    "Portfolio de Kevine, développeur web et mobile en recherche d'alternance. Créateur de DevEnGalère, passionné d'éco-conception et de technologies modernes.",
   keywords: ["développeur", "fullstack", "javascript", "react", "nextjs", "alternance", "portfolio", "kevine"],
   authors: [{ name: "Kevine" }],
   creator: "Kevine Narson YVES",
@@ -26,12 +26,12 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Kevine Narson YVES - Développeur Web et mobile",
-    description: "Portfolio de Kevine, développeur fullstack JS en recherche d'alternance",
+    description: "Portfolio de Kevine,  développeur web et mobile  en recherche d'alternance",
     url: "https://kevine-portfolio.vercel.app/",
     siteName: "Kevine.dev",
     images: [
       {
-        url: "/og-image.png",
+        url: "/logoPwa.png",
         width: 1200,
         height: 630,
         alt: "Kevine Narson YVES - Développeur Web et mobile",
@@ -43,8 +43,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Kevine Narson YVES - Développeur Web et mobile",
-    description: "Portfolio de Kevine, développeur fullstack JS en recherche d'alternance",
-    images: ["/og-image.png"],
+    description: "Portfolio de Kevine Narson YVES, développeur web et mobile en recherche d'alternance",
+    images: ["/logoPwa.png"],
     creator: "@kevine_dev",
   },
   robots: {

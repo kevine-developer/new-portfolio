@@ -15,10 +15,9 @@ import PWAStatus from "@/components/pwa-status"
 import { CMSStatus } from "@/components/ui/cms-status"
 
 export default function ModernPortfolio() {
-  const [darkMode, setDarkMode] = useState(true)
 
   return (
-    <div className={`min-h-screen transition-all duration-500 ${darkMode ? "dark" : ""}`}>
+    <div className={`min-h-screen transition-all duration-500 `}>
       <div className="bg-slate-950 text-white min-h-screen relative overflow-hidden">
         {/* Status Components */}
         <PWAStatus />
