@@ -8,13 +8,13 @@ import ServiceWorkerRegister from "./sw-register"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Kevine - Développeur Fullstack JS | Portfolio",
+  title: "Kevine Narson YVES - Développeur Web et mobile | Portfolio",
   description:
     "Portfolio de Kevine, développeur fullstack JS en recherche d'alternance. Créateur de DevEnGalère, passionné d'éco-conception et de technologies modernes.",
   keywords: ["développeur", "fullstack", "javascript", "react", "nextjs", "alternance", "portfolio", "kevine"],
   authors: [{ name: "Kevine" }],
-  creator: "Kevine",
-  publisher: "Kevine",
+  creator: "Kevine Narson YVES",
+  publisher: "Kevine Narson YVES",
   formatDetection: {
     email: false,
     address: false,
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Kevine - Développeur Fullstack JS",
+    title: "Kevine Narson YVES - Développeur Web et mobile",
     description: "Portfolio de Kevine, développeur fullstack JS en recherche d'alternance",
     url: "https://kevine-portfolio.vercel.app/",
     siteName: "Kevine.dev",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Kevine - Développeur Fullstack JS",
+        alt: "Kevine Narson YVES - Développeur Web et mobile",
       },
     ],
     locale: "fr_FR",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kevine - Développeur Fullstack JS",
+    title: "Kevine Narson YVES - Développeur Web et mobile",
     description: "Portfolio de Kevine, développeur fullstack JS en recherche d'alternance",
     images: ["/og-image.png"],
     creator: "@kevine_dev",
@@ -119,35 +119,7 @@ export default function RootLayout({
 
         {/* DNS Prefetch */}
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
-        <link rel="dns-prefetch" href="//fonts.gstatic.com" />
-
-        {/* Script pour éviter le flash de thème */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var theme = localStorage.getItem('theme') || 'dark';
-                  var resolvedTheme = theme;
-                  
-                  if (theme === 'system') {
-                    resolvedTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-                  }
-                  
-                  document.documentElement.classList.add(resolvedTheme);
-                  
-                  // Mettre à jour la meta theme-color
-                  var metaThemeColor = document.querySelector('meta[name="theme-color"]');
-                  if (metaThemeColor) {
-                    metaThemeColor.setAttribute('content', resolvedTheme === 'dark' ? '#0f172a' : '#ffffff');
-                  }
-                } catch (e) {
-                  document.documentElement.classList.add('dark');
-                }
-              })();
-            `,
-          }}
-        />
+        <link rel="dns-prefetch" href="//fonts.gstatic.com" /> 
       </head>
       <body className={inter.className}>
           {children}

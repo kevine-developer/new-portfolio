@@ -1,25 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  Calendar,
-  Download,
-  Rocket,
-  Star,
-  MapPin,
-  Clock,
-  GraduationCap,
-  Briefcase,
-} from "lucide-react";
+import { Rocket, Star,} from "lucide-react";
 import { Section } from "@/components/ui/section";
 import { SectionHeader } from "@/components/ui/section-header";
 import { AnimatedCard } from "@/components/ui/animated-card";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import Link from "next/link";
 import { useAlternanceSearchCriteria, useAlternanceStrengths } from "@/hooks/use-cms-data";
-
 
 export function AlternanceSection() {
 
@@ -30,7 +18,7 @@ export function AlternanceSection() {
   return (
     <Section id="alternance">
       <SectionHeader
-        title="Je cherche une Alternance ! 🎯"
+        title="Je cherche une Alternance !"
         highlight="Alternance"
         subtitle="Prêt à rejoindre votre équipe pour créer des solutions innovantes ensemble"
       />
