@@ -9,6 +9,7 @@ import { GradientText } from "@/components/ui/gradient-text"
 import { useTypingEffect } from "@/hooks/use-typing-effect"
 import { useHeroSettings, useContactSettings } from "@/hooks/use-cms-data"
 import Image from "next/image"
+import Link from "next/link"
 
 export function HeroSection() {
   const { data: heroSettings } = useHeroSettings()
@@ -133,10 +134,10 @@ export function HeroSection() {
                 className="w-full sm:w-auto bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white border-0 group"
                 asChild
               >
-                <a href={`mailto:${contactSettings.email}`}>
+                <Link href="https://calendar.app.google/exMCxhM4tLJycwBP7" target="_blank">
                   <Mail className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:rotate-12 transition-transform" />
                   Parlons alternance
-                </a>
+                </Link>
               </Button>
               
            <Button
@@ -145,10 +146,10 @@ export function HeroSection() {
                 className="w-full sm:w-auto border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-white group"
                 asChild
               >
-                <a href="https://drive.google.com/file/d/1UP3EaksVn7VifaTyNuW-sQbCCW2g7IYg/view?usp=sharing">
+                <Link href="https://drive.google.com/file/d/1UP3EaksVn7VifaTyNuW-sQbCCW2g7IYg/view?usp=sharing" target="_blank">
                   <Download className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
             Télécharger mon CV
-                </a>
+                </Link>
               </Button>
             </motion.div>
 
