@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Mail, Play, Calendar, MapPin, Terminal, Coffee, Heart, ChevronDown } from "lucide-react"
+import { Mail, Play, Calendar, MapPin, Terminal, Coffee, Heart, ChevronDown, Download } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Container } from "@/components/ui/container"
@@ -138,17 +138,14 @@ export function HeroSection() {
                   Parlons alternance
                 </a>
               </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="w-full sm:w-auto border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-white group"
-                asChild
-              >
-                <a href="#projets">
-                  <Play className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:scale-110 transition-transform" />
-                  Voir mes projets
-                </a>
-              </Button>
+                <Button
+            variant="outline"
+            size="lg"
+            className="border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-white group"
+          >
+            <Download className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+            Télécharger mon CV
+          </Button>
             </motion.div>
 
             {/* Info badges */}

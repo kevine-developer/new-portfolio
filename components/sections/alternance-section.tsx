@@ -122,27 +122,6 @@ export function AlternanceSection() {
         viewport={{ once: true }}
         className="text-center space-y-6"
       >
-        <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <Link href={"https://calendar.app.google/exMCxhM4tLJycwBP7"}>
-            {" "}
-            <Button
-              size="lg"
-              className="bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white border-0 group"
-            >
-              <Calendar className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" />
-              Disponible dès octobre 2025
-            </Button>
-          </Link>
-          <Button
-            variant="outline"
-            size="lg"
-            className="border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-white group"
-          >
-            <Download className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
-            Télécharger mon CV
-          </Button>
-        </div>
-
         <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6 sm:p-8 backdrop-blur-sm max-w-2xl mx-auto">
           <p className="text-lg sm:text-xl text-slate-300 font-medium mb-4">
             Discutons ensemble ? Je vous réponds sous{" "}
