@@ -97,7 +97,7 @@ kevine-portfolio/
 #### Vérifications Automatiques
 \`\`\`bash
 # Vérifier le statut du site
-curl -I https://kevine.dev
+curl -I https://kevine-portfolio.vercel.app/
 
 # Vérifier les performances
 npm run lighthouse
@@ -574,7 +574,7 @@ npm run analyze
 npm run lighthouse
 
 # Vérifier les Core Web Vitals
-npx web-vitals-cli https://kevine.dev
+npx web-vitals-cli https://kevine-portfolio.vercel.app/
 \`\`\`
 
 ### Logs et Debugging

@@ -122,7 +122,7 @@ export function ContactSection() {
 
             <div className="pt-4 sm:pt-6 border-t border-slate-800">
               <p className="text-xs sm:text-sm text-slate-400 mb-3 sm:mb-4">Retrouvez-moi aussi sur :</p>
-          <div className="grid grid-cols-2 gap-2 sm:gap-3">
+          <div className="grid grid-cols-4 gap-2 sm:gap-3">
             {socialLinks.map((social, index) => {
               const Icon = iconMap[social.icon];
               return (
@@ -163,7 +163,7 @@ export function ContactSection() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="name" className="text-xs sm:text-sm font-medium text-slate-300">

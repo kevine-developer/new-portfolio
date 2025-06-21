@@ -55,7 +55,7 @@ export default function MentionsLegalesPage() {
                           <strong>Email :</strong> yvesnarsonkevine@gmail.com
                         </p>
                         <p>
-                          <strong>Site web :</strong> https://kevine.dev
+                          <strong>Site web :</strong> https://kevine-portfolio.vercel.app/
                         </p>
                       </div>
                     </div>

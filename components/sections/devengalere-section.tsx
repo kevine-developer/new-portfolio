@@ -7,8 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 
 export function DevEngalereSection() {
-  const floatingEmojis = ["🐛", "☕", "🎉", "🤔", "💡", "🚀", "😅"]
-
+ 
   return (
     <Section className="relative">
       <motion.div
@@ -35,7 +34,7 @@ export function DevEngalereSection() {
 
                 <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
                   Créateur de contenu tech humoristique qui rassemble{" "}
-                  <span className="text-yellow-400 font-semibold">10k+ développeurs</span> sur TikTok et Instagram. Je
+                  <span className="text-yellow-400 font-semibold">plusieurs développeurs</span> sur TikTok et Instagram. Je
                   vulgarise les concepts techniques avec humour, parce qu'un dev qui sait rire de ses bugs, c'est un dev
                   qui sait les résoudre ! 🐛✨
                 </p>
@@ -43,15 +42,15 @@ export function DevEngalereSection() {
                 {/* Stats */}
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 text-center">
                   <div className="bg-slate-900/50 rounded-lg p-3 sm:p-4 border border-slate-800">
-                    <div className="text-xl sm:text-2xl font-bold text-yellow-400">10k+</div>
+                    <div className="text-xl sm:text-2xl font-bold text-yellow-400">80+</div>
                     <div className="text-xs sm:text-sm text-slate-400">Followers</div>
                   </div>
                   <div className="bg-slate-900/50 rounded-lg p-3 sm:p-4 border border-slate-800">
-                    <div className="text-xl sm:text-2xl font-bold text-orange-400">500k+</div>
+                    <div className="text-xl sm:text-2xl font-bold text-orange-400">5k+</div>
                     <div className="text-xs sm:text-sm text-slate-400">Vues</div>
                   </div>
                   <div className="bg-slate-900/50 rounded-lg p-3 sm:p-4 border border-slate-800 col-span-2 sm:col-span-1">
-                    <div className="text-xl sm:text-2xl font-bold text-pink-400">50+</div>
+                    <div className="text-xl sm:text-2xl font-bold text-pink-400">20+</div>
                     <div className="text-xs sm:text-sm text-slate-400">Vidéos</div>
                   </div>
                 </div>
@@ -63,7 +62,7 @@ export function DevEngalereSection() {
                     className="border-yellow-500/30 text-yellow-400 hover:bg-yellow-500/10 group"
                     asChild
                   >
-                    <a href="https://tiktok.com/@devengalere" target="_blank" rel="noopener noreferrer">
+                    <a href="https://tiktok.com/@dev_en_galere" target="_blank" rel="noopener noreferrer">
                       <Play className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
                       Voir mes vidéos
                     </a>
@@ -73,7 +72,7 @@ export function DevEngalereSection() {
                     className="border-orange-500/30 text-orange-400 hover:bg-orange-500/10 group"
                     asChild
                   >
-                    <a href="https://instagram.com/devengalere" target="_blank" rel="noopener noreferrer">
+                    <a href="https://instagram.com/dev_en_galere" target="_blank" rel="noopener noreferrer">
                       <Users className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
                       Rejoindre la communauté
                     </a>
@@ -120,39 +119,7 @@ export function DevEngalereSection() {
                   </div>
                 </motion.div>
 
-                {/* Floating emojis */}
-                {floatingEmojis.map((emoji, index) => (
-                  <motion.div
-                    key={index}
-                    animate={{
-                      y: [0, -20, 0],
-                      x: [0, 10, -10, 0],
-                      rotate: [0, 180, 360],
-                    }}
-                    transition={{
-                      duration: 3 + index,
-                      repeat: Number.POSITIVE_INFINITY,
-                      delay: index * 0.5,
-                    }}
-                    className={`absolute text-lg sm:text-2xl ${
-                      index === 0
-                        ? "top-4 right-4"
-                        : index === 1
-                          ? "bottom-4 left-4"
-                          : index === 2
-                            ? "top-1/2 -right-4"
-                            : index === 3
-                              ? "bottom-8 right-8"
-                              : index === 4
-                                ? "top-8 -left-4"
-                                : index === 5
-                                  ? "top-2/4 right-1/4"
-                                  : "bottom-1/4 left-1/4"
-                    }`}
-                  >
-                    {emoji}
-                  </motion.div>
-                ))}
+               
               </div>
             </div>
           </CardContent>

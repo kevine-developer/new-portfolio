@@ -19,7 +19,7 @@ INSERT INTO skills (name, level, color, icon, category, order_index) VALUES
 INSERT INTO projects (slug, title, description, long_description, tech, type, status, color, github_url, demo_url, metrics, is_featured, order_index) VALUES
 ('easytri', 'Easytri', 'Application mobile de tri sélectif avec IA', 'Application mobile complète développée en React Native avec reconnaissance d''objets par IA, géolocalisation des points de collecte, et système de gamification pour encourager le tri sélectif. Intégration d''une base de données Supabase et d''APIs de géolocalisation.', '["React Native", "Supabase", "TensorFlow.js", "Expo", "TypeScript"]', 'Production', '🚀 En production', 'from-emerald-500 to-teal-600', 'https://github.com/kevine/easytri', 'https://easytri.app', '5k+ utilisateurs actifs', true, 1),
 ('telolabz', 'TeloLabz - Missions Freelance', 'Développement d''applications sur mesure', 'Série de projets freelance incluant des sites e-commerce, applications web, et APIs. Développement fullstack avec Laravel/PHP côté backend et React/Next.js côté frontend. Gestion complète des projets de la conception à la livraison.', '["Next.js", "Laravel", "MySQL", "Stripe", "Tailwind CSS"]', 'Freelance', '💼 15+ projets livrés', 'from-purple-500 to-indigo-600', 'https://github.com/kevine/telolabz-projects', 'https://telolabz.com', '15+ clients satisfaits', true, 2),
-('devengalere', 'DevEnGalère', 'Contenu tech humoristique sur les réseaux', 'Création de contenu éducatif et humoristique sur le développement web via TikTok et Instagram. Vulgarisation de concepts techniques complexes avec une approche décalée. Communauté engagée de développeurs francophones.', '["Next.js", "MDX", "Vercel", "Figma", "Premiere Pro"]', 'Personnel', '🔥 10k+ followers', 'from-yellow-500 to-orange-600', 'https://github.com/kevine/devengalere', 'https://devengalere.fr', '10k+ followers, 500k+ vues', true, 3);
+('devengalere', 'DevEnGalère', 'Contenu tech humoristique sur les réseaux', 'Création de contenu éducatif et humoristique sur le développement web via TikTok et Instagram. Vulgarisation de concepts techniques complexes avec une approche décalée.', '["Next.js", "MDX", "Vercel", "Figma", "Premiere Pro"]', 'Personnel', '🔥 10k+ followers', 'from-yellow-500 to-orange-600', 'https://github.com/kevine/devengalere', 'https://devengalere.fr', '10k+ followers, 500k+ vues', true, 3);
 
 -- Timeline
 INSERT INTO timeline_items (date_range, title, company, description, type, status, icon, order_index) VALUES
@@ -52,3 +52,19 @@ INSERT INTO site_settings (key, value, description) VALUES
 ('availability_date', '"Octobre 2025"', 'Date de disponibilité'),
 ('location', '"France • Remote OK"', 'Localisation'),
 ('devengalere_stats', '{"followers": "10k+", "views": "500k+", "videos": "50+"}', 'Statistiques DevEnGalère');
+
+-- Critères de recherche d'alternance
+INSERT INTO alternance_search_criteria (icon, label, value, color, order_index) VALUES
+('Briefcase', 'Poste', 'Développeur Fullstack JS', 'text-emerald-400', 1),
+('Clock', 'Rythme', '3 semaines entreprise / 1 semaine école', 'text-blue-400', 2),
+('Calendar', 'Durée', '12 mois (Oct 2025 - Oct 2026)', 'text-purple-400', 3),
+('MapPin', 'Lieu', 'France • Remote friendly', 'text-yellow-400', 4),
+('GraduationCap', 'Formation', 'CDA RNCP 6 chez Simplon', 'text-pink-400', 5);
+
+-- Forces/Atouts de l'alternant
+INSERT INTO alternance_strengths (icon, label, value, color, order_index) VALUES
+('Star', 'Autonomie', 'Projets menés de A à Z', 'text-emerald-400', 1),
+('Rocket', 'Créativité', 'Solutions innovantes et éco-conçues', 'text-blue-400', 2),
+('🔧', 'Polyvalence', 'Stack complète maîtrisée', 'text-purple-400', 3),
+('🌱', 'Éco-conception', 'Développement durable et responsable', 'text-green-400', 4),
+('😊', 'Humain', 'Esprit d''équipe et bonne humeur', 'text-yellow-400', 5);

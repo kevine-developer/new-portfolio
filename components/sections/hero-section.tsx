@@ -1,13 +1,15 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Mail, Play, Calendar, MapPin, Terminal, Coffee, Heart, ChevronDown } from "lucide-react"
+import { Mail, Play, Calendar, MapPin, Terminal, Coffee, Heart, ChevronDown, Download } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Container } from "@/components/ui/container"
 import { GradientText } from "@/components/ui/gradient-text"
 import { useTypingEffect } from "@/hooks/use-typing-effect"
 import { useHeroSettings, useContactSettings } from "@/hooks/use-cms-data"
+import Image from "next/image"
+import Link from "next/link"
 
 export function HeroSection() {
   const { data: heroSettings } = useHeroSettings()
@@ -25,7 +27,7 @@ export function HeroSection() {
   ]
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative pt-16 sm:pt-20">
+    <section id="acceuil" className="min-h-screen flex items-center justify-center relative pt-16 sm:pt-20">
       {/* Animated background blobs */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -132,21 +134,22 @@ export function HeroSection() {
                 className="w-full sm:w-auto bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white border-0 group"
                 asChild
               >
-                <a href={`mailto:${contactSettings.email}`}>
+                <Link href="https://calendar.app.google/exMCxhM4tLJycwBP7" target="_blank">
                   <Mail className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:rotate-12 transition-transform" />
                   Parlons alternance
-                </a>
+                </Link>
               </Button>
-              <Button
+              
+           <Button
                 variant="outline"
                 size="lg"
                 className="w-full sm:w-auto border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-white group"
                 asChild
               >
-                <a href="#projets">
-                  <Play className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:scale-110 transition-transform" />
-                  Voir mes projets
-                </a>
+                <Link href="https://drive.google.com/file/d/1UP3EaksVn7VifaTyNuW-sQbCCW2g7IYg/view?usp=sharing" target="_blank">
+                  <Download className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+            Télécharger mon CV
+                </Link>
               </Button>
             </motion.div>
 
@@ -182,19 +185,14 @@ export function HeroSection() {
             <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg mx-auto">
               {/* Main avatar container */}
               <div className="relative w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 mx-auto">
-                <motion.div
-                  animate={{ rotate: [0, 360] }}
-                  transition={{
-                    duration: 20,
-                    repeat: Number.POSITIVE_INFINITY,
-                    ease: "linear",
-                  }}
+                <div
+                  
                   className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-500 via-blue-500 to-purple-500 p-1"
                 >
                   <div className="w-full h-full rounded-full bg-slate-950 flex items-center justify-center">
-                    <div className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl">👨‍💻</div>
+                    <div className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl"><Image src="/logo.png" alt="logo" width={140} height={140}/></div>
                   </div>
-                </motion.div>
+                </div>
 
                 {/* Floating tech icons */}
                 {floatingIcons.map((item, index) => (
@@ -203,7 +201,7 @@ export function HeroSection() {
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 1 + item.delay, duration: 0.5 }}
-                    className={`absolute ${item.position} w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-slate-800/80 backdrop-blur-sm rounded-full flex items-center justify-center border border-slate-700 shadow-lg`}
+                    className={`absolute ${item.position} w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-slate-800/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg`}
                   >
                     <motion.span
                       animate={{
@@ -263,7 +261,7 @@ export function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2 }}
-          className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2"
+          className="absolute  sm:bottom-8 left-1/2 transform -translate-x-1/2"
         >
           <motion.div
             animate={{ y: [0, 10, 0] }}

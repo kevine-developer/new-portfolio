@@ -29,15 +29,15 @@ export function Footer() {
   return (
     <footer className="py-12 px-4 sm:px-6 lg:px-8 border-t border-slate-800 bg-slate-950/50 backdrop-blur-sm">
       <Container>
-        <div className="text-center space-y-6">
+        <div className="text-center space-y-6  ">
           {/* Logo */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-bold text-xl sm:text-2xl"
+            className="font-bold text-xl sm:text-2xl flex justify-center"
           >
-              <Image src="/logo.png" alt="Logo" width={100} height={100}  className="rounded-xl " />
+             <Image src="/logoTwo.png" alt="Logo" width={200} height={90} />
           </motion.div>
 
           {/* Social Links */}

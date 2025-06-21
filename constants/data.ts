@@ -1,4 +1,4 @@
-import type { Skill, Project, TimelineItem, SocialLink } from "@/types"
+import type { Skill, Project, TimelineItem, SocialLink } from "@/types/"
 
 export const SKILLS: Skill[] = [
   { name: "React", level: 95, color: "from-blue-400 to-blue-600", icon: "⚛️", category: "frontend" },
@@ -20,7 +20,7 @@ export const PROJECTS: Project[] = [
     id: "easytri",
     title: "Easytri",
     description: "Application mobile de tri sélectif avec IA",
-    longDescription:
+    long_description:
       "Application mobile complète développée en React Native avec reconnaissance d'objets par IA, géolocalisation des points de collecte, et système de gamification pour encourager le tri sélectif. Intégration d'une base de données Supabase et d'APIs de géolocalisation.",
     tech: ["React Native", "Supabase", "TensorFlow.js", "Expo", "TypeScript"],
     type: "Production",
@@ -36,7 +36,7 @@ export const PROJECTS: Project[] = [
     id: "telolabz",
     title: "TeloLabz - Missions Freelance",
     description: "Développement d'applications sur mesure",
-    longDescription:
+    long_description:
       "Série de projets freelance incluant des sites e-commerce, applications web, et APIs. Développement fullstack avec Laravel/PHP côté backend et React/Next.js côté frontend. Gestion complète des projets de la conception à la livraison.",
     tech: ["Next.js", "Laravel", "MySQL", "Stripe", "Tailwind CSS"],
     type: "Freelance",
@@ -52,7 +52,7 @@ export const PROJECTS: Project[] = [
     id: "devengalere",
     title: "DevEnGalère",
     description: "Contenu tech humoristique sur les réseaux",
-    longDescription:
+    long_description:
       "Création de contenu éducatif et humoristique sur le développement web via TikTok et Instagram. Vulgarisation de concepts techniques complexes avec une approche décalée. Communauté engagée de développeurs francophones.",
     tech: ["Next.js", "MDX", "Vercel", "Figma", "Premiere Pro"],
     type: "Personnel",

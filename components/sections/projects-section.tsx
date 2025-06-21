@@ -8,15 +8,16 @@ import { Section } from "@/components/ui/section"
 import { SectionHeader } from "@/components/ui/section-header"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { PROJECTS } from "@/constants/data"
-import type { Project } from "@/types"
+
+import { useProjects } from "@/hooks/use-cms-data"
+import { Project } from "@/types/cms"
 
 interface ProjectCardProps {
   project: Project
   index: number
 }
 
-function ProjectCard({ project, index }: ProjectCardProps) {
+export function ProjectCard({ project, index }: ProjectCardProps) {
   const isEven = index % 2 === 0
 
   return (
@@ -59,16 +60,20 @@ function ProjectCard({ project, index }: ProjectCardProps) {
                 <p className="text-xs sm:text-sm text-slate-300">{project.description}</p>
               </div>
               <div className="flex space-x-1 sm:space-x-2 flex-shrink-0">
-                <Button size="sm" variant="ghost" className="text-white hover:bg-white/20 p-1 sm:p-2" asChild>
-                  <Link href={project.github} target="_blank">
-                    <Github className="w-3 h-3 sm:w-4 sm:h-4" />
-                  </Link>
-                </Button>
-                <Button size="sm" variant="ghost" className="text-white hover:bg-white/20 p-1 sm:p-2" asChild>
-                  <Link href={project.demo} target="_blank">
-                    <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
-                  </Link>
-                </Button>
+                {project.github && (
+                  <Button size="sm" variant="ghost" className="text-white hover:bg-white/20 p-1 sm:p-2" asChild>
+                    <Link href={project.github} target="_blank">
+                      <Github className="w-3 h-3 sm:w-4 sm:h-4" />
+                    </Link>
+                  </Button>
+                )}
+                {project.demo && (
+                  <Button size="sm" variant="ghost" className="text-white hover:bg-white/20 p-1 sm:p-2" asChild>
+                    <Link href={project.demo} target="_blank">
+                      <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
+                    </Link>
+                  </Button>
+                )}
               </div>
             </div>
           </div>
@@ -89,7 +94,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
           </div>
 
           <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">{project.title}</h3>
-          <p className="text-slate-300 text-sm sm:text-base lg:text-lg leading-relaxed">{project.longDescription}</p>
+          <p className="text-slate-300 text-sm sm:text-base lg:text-lg leading-relaxed">{project.long_description}</p>
 
           {/* Tech stack */}
           <div className="flex flex-wrap gap-2">
@@ -110,27 +115,31 @@ function ProjectCard({ project, index }: ProjectCardProps) {
 
           {/* Actions */}
           <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
-            <Button
-              variant="outline"
-              size="sm"
-              className="border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-white group w-full sm:w-auto"
-              asChild
-            >
-              <Link href={project.github} target="_blank">
-                <Github className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform" />
-                Code source
-              </Link>
-            </Button>
-            <Button
-              size="sm"
-              className={`bg-gradient-to-r ${project.color} hover:opacity-90 text-white border-0 group w-full sm:w-auto`}
-              asChild
-            >
-              <Link href={project.demo} target="_blank">
-                <ExternalLink className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform" />
-                Voir le projet
-              </Link>
-            </Button>
+            {project.github && (
+              <Button
+                variant="outline"
+                size="sm"
+                className="border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-white group w-full sm:w-auto"
+                asChild
+              >
+                <Link href={project.github} target="_blank">
+                  <Github className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform" />
+                  Code source
+                </Link>
+              </Button>
+            )}
+            {project.demo && (
+              <Button
+                size="sm"
+                className={`bg-gradient-to-r ${project.color} hover:opacity-90 text-white border-0 group w-full sm:w-auto`}
+                asChild
+              >
+                <Link href={project.demo} target="_blank">
+                  <ExternalLink className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform" />
+                  Voir le projet
+                </Link>
+              </Button>
+            )}
           </div>
         </div>
       </div>
@@ -139,6 +148,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
 }
 
 export function ProjectsSection() {
+  const {data: Project , loading, error} = useProjects()
   return (
     <Section id="projets">
       <SectionHeader
@@ -148,8 +158,8 @@ export function ProjectsSection() {
       />
 
       <div className="space-y-12 sm:space-y-16 lg:space-y-20">
-        {PROJECTS.filter((p) => p.featured).map((project, index) => (
-          <ProjectCard key={project.id} project={project} index={index} />
+        {Project.filter((p) => p.featured).map((projects, index) => (
+          <ProjectCard key={projects.id} project={projects} index={index} />
         ))}
       </div>
     </Section>

@@ -8,6 +8,8 @@ import type {
   HeroSettings,
   ContactSettings,
   DevEngalereStats,
+  AlternanceSearchCriterion, // Added
+  AlternanceStrength, // Added
 } from "@/types/cms"
 
 // Données de fallback statiques
@@ -296,6 +298,145 @@ const FALLBACK_SOCIAL_LINKS: SocialLink[] = [
   },
 ]
 
+const FALLBACK_ALTERNANCE_SEARCH_CRITERIA: AlternanceSearchCriterion[] = [
+  {
+    id: "1",
+    icon: "Briefcase",
+    label: "Poste",
+    value: "Développeur Fullstack JS",
+    color: "text-emerald-400",
+    order_index: 1,
+    is_active: true,
+    created_at: "",
+    updated_at: "",
+  },
+  {
+    id: "2",
+    icon: "Clock",
+    label: "Rythme",
+    value: "3 semaines entreprise / 1 semaine école",
+    color: "text-blue-400",
+    order_index: 2,
+    is_active: true,
+    created_at: "",
+    updated_at: "",
+  },
+  {
+    id: "3",
+    icon: "Calendar",
+    label: "Durée",
+    value: "12 mois (Oct 2025 - Oct 2026)",
+    color: "text-purple-400",
+    order_index: 3,
+    is_active: true,
+    created_at: "",
+    updated_at: "",
+  },
+  {
+    id: "4",
+    icon: "MapPin",
+    label: "Lieu",
+    value: "France • Remote friendly",
+    color: "text-yellow-400",
+    order_index: 4,
+    is_active: true,
+    created_at: "",
+    updated_at: "",
+  },
+  {
+    id: "5",
+    icon: "GraduationCap",
+    label: "Formation",
+    value: "CDA RNCP 6 chez Simplon",
+    color: "text-pink-400",
+    order_index: 5,
+    is_active: true,
+    created_at: "",
+    updated_at: "",
+  },
+]
+const FALLBACK_HERO_SETTINGS: HeroSettings = {
+  typing_texts: [
+    "Développeur Fullstack JS",
+    "Créateur DevEnGalère",
+    "Étudiant CDA chez Simplon",
+    "Passionné d'éco-conception",
+    "Prêt pour l'alternance",
+  ],
+  title: "Salut, je suis Kevine",
+  description:
+    "Je crée des applications web et mobile modernes et éco-conçues. Passionné par le code propre, l'UX et l'humour tech via DevEnGalère 🚀",
+}
+
+const FALLBACK_CONTACT_SETTINGS: ContactSettings = {
+  email: "kevine.dev@gmail.com",
+  availability_date: "Octobre 2025",
+  location: "France • Remote OK",
+}
+
+const FALLBACK_DEVENGALERE_STATS: DevEngalereStats = {
+  followers: "10k+",
+  views: "500k+",
+  videos: "50+",
+}
+const FALLBACK_ALTERNANCE_STRENGTHS: AlternanceStrength[] = [
+  {
+    id: "1",
+    icon: "Star",
+    label: "Autonomie",
+    value: "Projets menés de A à Z",
+    color: "text-emerald-400",
+    order_index: 1,
+    is_active: true,
+    created_at: "",
+    updated_at: "",
+  },
+  {
+    id: "2",
+    icon: "Rocket",
+    label: "Créativité",
+    value: "Solutions innovantes et éco-conçues",
+    color: "text-blue-400",
+    order_index: 2,
+    is_active: true,
+    created_at: "",
+    updated_at: "",
+  },
+  {
+    id: "3",
+    icon: "🔧",
+    label: "Polyvalence",
+    value: "Stack complète maîtrisée",
+    color: "text-purple-400",
+    order_index: 3,
+    is_active: true,
+    created_at: "",
+    updated_at: "",
+  },
+  {
+    id: "4",
+    icon: "🌱",
+    label: "Éco-conception",
+    value: "Développement durable et responsable",
+    color: "text-green-400",
+    order_index: 4,
+    is_active: true,
+    created_at: "",
+    updated_at: "",
+  },
+  {
+    id: "5",
+    icon: "😊",
+    label: "Humain",
+    value: "Esprit d'équipe et bonne humeur",
+    color: "text-yellow-400",
+    order_index: 5,
+    is_active: true,
+    created_at: "",
+    updated_at: "",
+  },
+]
+
 // Cache simple en mémoire
 const cache = new Map<string, { data: any; timestamp: number }>()
 const CACHE_DURATION = 5 * 60 * 1000 // 5 minutes
@@ -313,6 +454,7 @@ function setCachedData<T>(key: string, data: T): void {
 }
 
 // Fonctions pour récupérer les données avec fallback
+
 export async function getSkills(): Promise<Skill[]> {
   const cacheKey = "skills"
   const cached = getCachedData<Skill[]>(cacheKey)
@@ -489,36 +631,201 @@ export async function getSocialLinks(): Promise<SocialLink[]> {
   }
 }
 
+// New functions for Alternance Section
+export async function getAlternanceSearchCriteria(): Promise<AlternanceSearchCriterion[]> {
+  const cacheKey = "alternance-search-criteria"
+  const cached = getCachedData<AlternanceSearchCriterion[]>(cacheKey)
+  if (cached) return cached
+
+  if (!isSupabaseConfigured() || !supabase) {
+    console.log("Using fallback data for alternance search criteria")
+    setCachedData(cacheKey, FALLBACK_ALTERNANCE_SEARCH_CRITERIA)
+    return FALLBACK_ALTERNANCE_SEARCH_CRITERIA
+  }
+
+  try {
+    const { data, error } = await supabase
+      .from("alternance_search_criteria")
+      .select("*")
+      .eq("is_active", true)
+      .order("order_index", { ascending: true })
+
+    if (error) {
+      console.error("Error fetching alternance search criteria:", error)
+      return FALLBACK_ALTERNANCE_SEARCH_CRITERIA
+    }
+
+    setCachedData(cacheKey, data || [])
+    return data || []
+  } catch (error) {
+    console.error("Error fetching alternance search criteria:", error)
+    return FALLBACK_ALTERNANCE_SEARCH_CRITERIA
+  }
+}
+
+export async function getAlternanceStrengths(): Promise<AlternanceStrength[]> {
+  const cacheKey = "alternance-strengths"
+  const cached = getCachedData<AlternanceStrength[]>(cacheKey)
+  if (cached) return cached
+
+  if (!isSupabaseConfigured() || !supabase) {
+    console.log("Using fallback data for alternance strengths")
+    setCachedData(cacheKey, FALLBACK_ALTERNANCE_STRENGTHS)
+    return FALLBACK_ALTERNANCE_STRENGTHS
+  }
+
+  try {
+    const { data, error } = await supabase
+      .from("alternance_strengths")
+      .select("*")
+      .eq("is_active", true)
+      .order("order_index", { ascending: true })
+
+    if (error) {
+      console.error("Error fetching alternance strengths:", error)
+      return FALLBACK_ALTERNANCE_STRENGTHS
+    }
+
+    setCachedData(cacheKey, data || [])
+    return data || []
+  } catch (error) {
+    console.error("Error fetching alternance strengths:", error)
+    return FALLBACK_ALTERNANCE_STRENGTHS
+  }
+}
+
 export async function getHeroSettings(): Promise<HeroSettings> {
-  return {
-    typing_texts: [
-      "Développeur Fullstack JS",
-      "Créateur DevEnGalère",
-      "Étudiant CDA chez Simplon",
-      "Passionné d'éco-conception",
-      "Prêt pour l'alternance",
-    ],
-    title: "Salut, je suis Kevine",
-    description:
-      "Je crée des applications web et mobile modernes et éco-conçues. Passionné par le code propre, l'UX et l'humour tech via DevEnGalère 🚀",
+  const cacheKey = "hero-settings"
+  const cached = getCachedData<HeroSettings>(cacheKey)
+  if (cached) return cached
+
+  if (!isSupabaseConfigured() || !supabase) {
+    console.log("Using fallback data for hero settings")
+    setCachedData(cacheKey, FALLBACK_HERO_SETTINGS)
+    return FALLBACK_HERO_SETTINGS
+  }
+
+  try {
+    const { data: typingTextsData, error: typingTextsError } = await supabase
+      .from("site_settings")
+      .select("value")
+      .eq("key", "hero_typing_texts")
+      .single()
+
+    const { data: titleData, error: titleError } = await supabase
+      .from("site_settings")
+      .select("value")
+      .eq("key", "hero_title")
+      .single()
+
+    const { data: descriptionData, error: descriptionError } = await supabase
+      .from("site_settings")
+      .select("value")
+      .eq("key", "hero_description")
+      .single()
+
+    if (typingTextsError || titleError || descriptionError) {
+      console.error("Error fetching hero settings:", typingTextsError || titleError || descriptionError)
+      return FALLBACK_HERO_SETTINGS
+    }
+
+    const heroSettings: HeroSettings = {
+      typing_texts: typingTextsData?.value || FALLBACK_HERO_SETTINGS.typing_texts,
+      title: titleData?.value || FALLBACK_HERO_SETTINGS.title,
+      description: descriptionData?.value || FALLBACK_HERO_SETTINGS.description,
+    }
+
+    setCachedData(cacheKey, heroSettings)
+    return heroSettings
+  } catch (error) {
+    console.error("Error fetching hero settings:", error)
+    return FALLBACK_HERO_SETTINGS
   }
 }
 
 export async function getContactSettings(): Promise<ContactSettings> {
-  return {
-    email: "kevine.dev@gmail.com",
-    availability_date: "Octobre 2025",
-    location: "France • Remote OK",
+  const cacheKey = "contact-settings"
+  const cached = getCachedData<ContactSettings>(cacheKey)
+  if (cached) return cached
+
+  if (!isSupabaseConfigured() || !supabase) {
+    console.log("Using fallback data for contact settings")
+    setCachedData(cacheKey, FALLBACK_CONTACT_SETTINGS)
+    return FALLBACK_CONTACT_SETTINGS
+  }
+
+  try {
+    const { data: emailData, error: emailError } = await supabase
+      .from("site_settings")
+      .select("value")
+      .eq("key", "contact_email")
+      .single()
+
+    const { data: availabilityDateData, error: availabilityDateError } = await supabase
+      .from("site_settings")
+      .select("value")
+      .eq("key", "availability_date")
+      .single()
+
+    const { data: locationData, error: locationError } = await supabase
+      .from("site_settings")
+      .select("value")
+      .eq("key", "location")
+      .single()
+
+    if (emailError || availabilityDateError || locationError) {
+      console.error("Error fetching contact settings:", emailError || availabilityDateError || locationError)
+      return FALLBACK_CONTACT_SETTINGS
+    }
+
+    const contactSettings: ContactSettings = {
+      email: emailData?.value || FALLBACK_CONTACT_SETTINGS.email,
+      availability_date: availabilityDateData?.value || FALLBACK_CONTACT_SETTINGS.availability_date,
+      location: locationData?.value || FALLBACK_CONTACT_SETTINGS.location,
+    }
+
+    setCachedData(cacheKey, contactSettings)
+    return contactSettings
+  } catch (error) {
+    console.error("Error fetching contact settings:", error)
+    return FALLBACK_CONTACT_SETTINGS
   }
 }
 
 export async function getDevEngalereStats(): Promise<DevEngalereStats> {
-  return {
-    followers: "10k+",
-    views: "500k+",
-    videos: "50+",
+  const cacheKey = "devengalere-stats"
+  const cached = getCachedData<DevEngalereStats>(cacheKey)
+  if (cached) return cached
+
+  if (!isSupabaseConfigured() || !supabase) {
+    console.log("Using fallback data for DevEnGalere stats")
+    setCachedData(cacheKey, FALLBACK_DEVENGALERE_STATS)
+    return FALLBACK_DEVENGALERE_STATS
+  }
+
+  try {
+    const { data, error } = await supabase
+      .from("site_settings")
+      .select("value")
+      .eq("key", "devengalere_stats")
+      .single()
+
+    if (error) {
+      console.error("Error fetching DevEnGalere stats:", error)
+      return FALLBACK_DEVENGALERE_STATS
+    }
+
+    // Supabase returns the value as a JSONB object, so we cast it
+    const stats = (data?.value || {}) as DevEngalereStats;
+
+    setCachedData(cacheKey, stats)
+    return stats
+  } catch (error) {
+    console.error("Error fetching DevEnGalere stats:", error)
+    return FALLBACK_DEVENGALERE_STATS
   }
 }
+
 
 // Fonction pour vider le cache
 export function clearCache(): void {
@@ -527,17 +834,29 @@ export function clearCache(): void {
 
 // Hook pour les données côté serveur
 export async function getServerSideData() {
-  const [skills, projects, timeline, testimonials, socialLinks, heroSettings, contactSettings, devEngalereStats] =
-    await Promise.all([
-      getSkills(),
-      getFeaturedProjects(),
-      getTimelineItems(),
-      getTestimonials(),
-      getSocialLinks(),
-      getHeroSettings(),
-      getContactSettings(),
-      getDevEngalereStats(),
-    ])
+  const [
+    skills,
+    projects,
+    timeline,
+    testimonials,
+    socialLinks,
+    heroSettings,
+    contactSettings,
+    devEngalereStats,
+    alternanceSearchCriteria, // Added
+    alternanceStrengths, // Added
+  ] = await Promise.all([
+    getSkills(),
+    getFeaturedProjects(),
+    getTimelineItems(),
+    getTestimonials(),
+    getSocialLinks(),
+    getHeroSettings(),
+    getContactSettings(),
+    getDevEngalereStats(),
+    getAlternanceSearchCriteria(), // Added
+    getAlternanceStrengths(), // Added
+  ])
 
   return {
     skills,
@@ -548,5 +867,7 @@ export async function getServerSideData() {
     heroSettings,
     contactSettings,
     devEngalereStats,
+    alternanceSearchCriteria, // Added
+    alternanceStrengths, // Added
   }
 }
