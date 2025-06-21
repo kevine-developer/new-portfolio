@@ -216,7 +216,7 @@ export function useHeroSettings() {
       "Étudiant CDA chez Simplon",
       "Prêt pour l'alternance",
     ],
-    title: "Salut, je suis Kevine",
+    title: "Hey, c'est Kevine",
     description:
       "Je crée des applications web et mobile modernes et éco-conçues. Passionné par le code propre, l'UX et l'humour tech via DevEnGalère 🚀",
   })
