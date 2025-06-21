@@ -67,15 +67,12 @@ export function ContactSection() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-
-    // Simulate form submission
+  
     await new Promise((resolve) => setTimeout(resolve, 1000))
 
-    // Reset form
     setFormData({ name: "", email: "", subject: "", message: "" })
     setIsSubmitting(false)
 
-    // Show success message (you can implement a toast here)
     alert("Message envoyé ! Je vous réponds sous 24h 🚀")
   }
 
@@ -230,7 +227,7 @@ export function ContactSection() {
 
               <Button
                 type="submit"
-                disabled={isSubmitting}
+                disabled
                 className="w-full bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white border-0 group py-3 disabled:opacity-50"
               >
                 <Send className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" />
