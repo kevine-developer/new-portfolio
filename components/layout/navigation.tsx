@@ -73,13 +73,7 @@ export function Navigation() {
               href="/"
               className="text-xl sm:text-2xl font-bold text-foreground hover:text-primary transition-colors"
             >
-                <Image
-    src="/logoTwo.png"
-    alt="Logo"
-    width={150} // Provide original intrinsic width
-    height={80} // Provide original intrinsic height
-    style={{ width: '100%', height: 'auto' }} // CSS to make it responsive and maintain aspect ratio
-  />
+                <Image src="/logoTwo.png" alt="Logo"  width={150}   height={80} />
             </Link>
           </motion.div>
 
