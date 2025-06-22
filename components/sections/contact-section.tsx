@@ -68,14 +68,12 @@ export function ContactSection() {
     e.preventDefault()
     setIsSubmitting(true)
 
-   
+  
     await new Promise((resolve) => setTimeout(resolve, 1000))
 
-    
     setFormData({ name: "", email: "", subject: "", message: "" })
     setIsSubmitting(false)
 
-   
     alert("Message envoyé ! Je vous réponds sous 24h 🚀")
   }
 
