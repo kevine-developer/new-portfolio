@@ -116,8 +116,8 @@ export function HeroSection() {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0"
+              transition={{ delay: 0.2 }}
+              className="text-base sm:text-lg md:text-xl text-slate-300  max-w-2xl mx-auto lg:mx-0"
             >
               {heroSettings.description}
             </motion.p>
@@ -126,7 +126,7 @@ export function HeroSection() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7 }}
+              transition={{ delay: 0.3 }}
               className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-center justify-center lg:justify-start"
             >
               <Button
@@ -157,7 +157,7 @@ export function HeroSection() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.9 }}
+              transition={{ delay: 0.3 }}
               className="flex flex-wrap sm:flex-row items-baseline sm:items-center justify-center lg:justify-start space-y-2 sm:space-y-0 sm:space-x-6 text-xs sm:text-sm text-slate-400 gap-2"
             >
               <div className="flex items-center space-x-2">
@@ -190,7 +190,7 @@ export function HeroSection() {
                   className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-500 via-blue-500 to-purple-500 p-1"
                 >
                   <div className="w-full h-full rounded-full bg-slate-950 flex items-center justify-center">
-                    <div className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl"><Image src="/logo.webp" alt="logo" width={140} height={140} className="w-full h-25 sm:h-25 md:h-35 lg:h-45 object-cover"/></div>
+                    <div className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl"><Image src="/logo.webp" alt="logo" loading="lazy" width={140} height={140} className="w-full h-25 sm:h-25 md:h-35 lg:h-45 object-cover"/></div>
                   </div>
                 </div>
 
@@ -225,7 +225,7 @@ export function HeroSection() {
               <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 1.5 }}
+                transition={{ delay: 1 }}
                 className="hidden md:block absolute -right-2 lg:-right-4 top-1/4 bg-slate-900/90 backdrop-blur-sm border border-slate-700 rounded-lg p-3 lg:p-4 font-mono text-xs lg:text-sm max-w-xs"
               >
                 <div className="flex items-center space-x-2 mb-2">

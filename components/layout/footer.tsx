@@ -50,9 +50,10 @@ export function Footer() {
             >
               <Image
                 src="/logoTwo.webp"
-                alt="Logo"
+                alt="LogoFooter"
                 width={200}
                 height={90}
+                loading="lazy"
                 className="w-full h-8 sm:h-5 md:h-6 lg:h-8 object-cover"
               />
             </Link>

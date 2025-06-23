@@ -80,7 +80,7 @@ useEffect(() => {
               href="/"
               className="text-xl sm:text-2xl font-bold text-foreground hover:text-primary transition-colors"
             >
-              <Image src="/logoTwo.webp" alt="Logo" width={150} height={80} className="w-full h-8 sm:h-5 md:h-6 lg:h-8 object-cover"/>
+              <Image src="/logoTwo.webp" alt="LogoHeader" loading="lazy" width={150} height={80} className="w-full h-8 sm:h-5 md:h-6 lg:h-8 object-cover"/>
             </Link>
         
 
