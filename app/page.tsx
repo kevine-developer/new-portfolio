@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from "react"
 import { Navigation } from "@/components/layout/navigation"
 import { Footer } from "@/components/layout/footer"
 import { HeroSection } from "@/components/sections/hero-section"
@@ -14,11 +13,12 @@ import PWAInstallPrompt from "@/components/pwa-install-prompt"
 import PWAStatus from "@/components/pwa-status"
 import { CMSStatus } from "@/components/ui/cms-status"
 
+
 export default function ModernPortfolio() {
 
   return (
-    <div className={`min-h-screen transition-all duration-500 `}>
-      <div className="bg-slate-950 text-white min-h-screen relative overflow-hidden">
+    <main className={`min-h-screen transition-all duration-500 bg-slate-950 text-white relative `}>
+    
         {/* Status Components */}
         <PWAStatus />
         <PWAInstallPrompt />
@@ -38,9 +38,8 @@ export default function ModernPortfolio() {
       
         <ContactSection />
 
-        {/* Footer */}
-        <Footer />
-      </div>
-    </div>
-  )
-}
+        {/** footer */}
+        <Footer/>
+
+</main>)
+  }

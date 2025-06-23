@@ -27,7 +27,7 @@ export function HeroSection() {
   ]
 
   return (
-    <section id="accueil" className="min-h-screen flex items-center justify-center relative pt-16 sm:pt-20">
+    <section id="accueil" className="min-h-screen flex items-center justify-center relative pt-10 sm:pt-10">
       {/* Animated background blobs */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -158,7 +158,7 @@ export function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.9 }}
-              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-2 sm:space-y-0 sm:space-x-6 text-xs sm:text-sm text-slate-400"
+              className="flex flex-wrap sm:flex-row items-baseline sm:items-center justify-center lg:justify-start space-y-2 sm:space-y-0 sm:space-x-6 text-xs sm:text-sm text-slate-400 gap-2"
             >
               <div className="flex items-center space-x-2">
                 <MapPin className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
@@ -190,7 +190,7 @@ export function HeroSection() {
                   className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-500 via-blue-500 to-purple-500 p-1"
                 >
                   <div className="w-full h-full rounded-full bg-slate-950 flex items-center justify-center">
-                    <div className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl"><Image src="/logo.png" alt="logo" width={140} height={140}/></div>
+                    <div className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl"><Image src="/logo.webp" alt="logo" width={140} height={140} className="w-full h-25 sm:h-25 md:h-35 lg:h-45 object-cover"/></div>
                   </div>
                 </div>
 

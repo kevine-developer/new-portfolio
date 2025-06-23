@@ -38,12 +38,12 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-10 group-hover:opacity-20 transition-opacity`}
           />
           <Image
-            src={project.image || "/placeholder.svg"}
+            src={project.image || "/defaultImageProject.webp"}
             alt={project.title}
             width={600}
             height={400}
             className="w-full h-48 sm:h-56 md:h-64 lg:h-80 object-cover transition-transform group-hover:scale-105"
-             lazyRoot=""
+        
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent" />
 

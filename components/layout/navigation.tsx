@@ -68,48 +68,37 @@ useEffect(() => {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         scrolled
-          ? "bg-background/80 backdrop-blur-md border-b border-border shadow-sm"
+          ? "bg-background/80 backdrop-blur-md border-b border-border border-gray-400/80 shadow-sm"
           : "bg-transparent"
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2 }}
-          >
+      
             <Link
               href="/"
               className="text-xl sm:text-2xl font-bold text-foreground hover:text-primary transition-colors"
             >
-              <Image src="/logoTwo.webp" alt="Logo" width={150} height={80} />
+              <Image src="/logoTwo.webp" alt="Logo" width={150} height={80} className="w-full h-8 sm:h-5 md:h-6 lg:h-8 object-cover"/>
             </Link>
-          </motion.div>
+        
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex gap-2 items-center space-x-1">
-            {navItems.map((item, index) => (
-              <motion.div
-                key={item.href}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 + index * 0.1 }}
-              >
-                <Link
-                  href={item.href}
-                  className={cn(
-                    "px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200",
-                    "hover:text-primary hover:bg-muted/50",
-                    activeHash === item.href
-                      ? "text-primary font-semibold text-emerald-400"
-                      : "text-muted-foreground"
-                  )}
-                >
-                  {item.label}
-                </Link>
-              </motion.div>
+            {navItems.map((item, index) => (         
+                    <Link
+                     key={item.href}
+                      href={item.href}
+                      className={cn(
+                        "text-slate-300 hover:text-emerald-400 transition-colors font-medium text-sm lg:text-base",
+                        activeHash === item.href
+                          ? "text-primary font-semibold text-emerald-400"
+                          : "text-muted-foreground"
+                      )}
+                    >
+                      {item.label}
+                    </Link>
             ))}
           </div>
 
@@ -151,6 +140,7 @@ useEffect(() => {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
+                       whileHover={{ y: -2 }}
                   >
                     <Link
                       href={item.href}
@@ -165,6 +155,7 @@ useEffect(() => {
                       {item.label}
                     </Link>
                   </motion.div>
+                  
                 ))}
               </div>
             </div>
