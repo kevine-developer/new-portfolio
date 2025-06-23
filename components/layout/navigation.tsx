@@ -73,7 +73,7 @@ export function Navigation() {
               href="/"
               className="text-xl sm:text-2xl font-bold text-foreground hover:text-primary transition-colors"
             >
-                <Image src="/logoTwo.png" alt="Logo"  width={150}   height={80} />
+                <Image src="/logoTwo.webp" alt="Logo"  width={150}   height={80}  />
             </Link>
           </motion.div>
 
@@ -86,14 +86,11 @@ export function Navigation() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 + index * 0.1 }}
               >
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
-                  onClick={() => handleNavClick(item.href)}
+                <Link href={item.href} className="text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
                 >
                   {item.label}
-                </Button>
+                </Link>
+                
               </motion.div>
             ))}
           </div>
@@ -104,7 +101,7 @@ export function Navigation() {
             <Button
               variant="ghost"
               size="sm"
-              className="lg:hidden text-foreground hover:bg-muted/50"
+              className="lg:hidden text-foreground hover:bg-muted/50 cursor-pointer"
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
             >
@@ -137,14 +134,11 @@ export function Navigation() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
                   >
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="w-full justify-start text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
-                      onClick={() => handleNavClick(item.href)}
+                    <Link href={item.href}
+                      className="w-full justify-start text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors cursor-pointer"
                     >
                       {item.label}
-                    </Button>
+                    </Link>
                   </motion.div>
                 ))}
               </div>

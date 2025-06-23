@@ -43,6 +43,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             width={600}
             height={400}
             className="w-full h-48 sm:h-56 md:h-64 lg:h-80 object-cover transition-transform group-hover:scale-105"
+             lazyRoot=""
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent" />
 
