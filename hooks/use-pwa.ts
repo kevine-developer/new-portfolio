@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 
 interface PWAHook {
   isInstalled: boolean
@@ -19,126 +19,122 @@ export function usePWA(): PWAHook {
   const [updateAvailable, setUpdateAvailable] = useState(false)
   const [registration, setRegistration] = useState<ServiceWorkerRegistration | null>(null)
 
+  // Mise à jour du statut en ligne
+  const updateOnlineStatus = useCallback(() => {
+    setIsOnline(navigator.onLine)
+  }, [])
+
+  // Détection de l'installation de l'application
+  const checkInstalled = useCallback(() => {
+    const isStandalone = window.matchMedia("(display-mode: standalone)").matches
+    const isIOSStandalone = (window.navigator as any).standalone === true
+    setIsInstalled(isStandalone || isIOSStandalone)
+  }, [])
+
+  // Gestion de l'invitation à l'installation
+  const handleBeforeInstallPrompt = useCallback((e: Event) => {
+    e.preventDefault()
+    setCanInstall(true)
+
+    const event = e as any
+    const promptInstall = async () => {
+      try {
+        await event.prompt()
+        const { outcome } = await event.userChoice
+        if (outcome === "accepted") {
+          setCanInstall(false)
+        }
+      } catch (error) {
+        console.warn("Prompt d'installation échoué :", error)
+      }
+    }
+
+    setInstallPrompt(() => promptInstall)
+  }, [])
+
+  // Gestion de l'événement d'installation réussie
+  const handleAppInstalled = useCallback(() => {
+    setIsInstalled(true)
+    setCanInstall(false)
+    setInstallPrompt(null)
+  }, [])
+
+  // Enregistrement du Service Worker
+  const registerSW = useCallback(async () => {
+    if ("serviceWorker" in navigator && typeof window !== "undefined") {
+      const isProduction = process.env.NODE_ENV === "production"
+
+      if (!isProduction) {
+        console.log("SW ignoré en développement")
+        return
+      }
+
+      try {
+        const swResponse = await fetch("/sw.js", {
+          method: "HEAD",
+          cache: "no-cache",
+        })
+
+        if (!swResponse.ok) {
+          console.warn("Fichier SW introuvable, enregistrement ignoré")
+          return
+        }
+
+        const reg = await navigator.serviceWorker.register("/sw.js", {
+          scope: "/",
+          updateViaCache: "none",
+        })
+
+        setRegistration(reg)
+
+        reg.addEventListener("updatefound", () => {
+          const newWorker = reg.installing
+          if (newWorker) {
+            newWorker.addEventListener("statechange", () => {
+              if (newWorker.state === "installed" && navigator.serviceWorker.controller) {
+                setUpdateAvailable(true)
+              }
+            })
+          }
+        })
+
+        console.log("Service Worker enregistré avec succès")
+      } catch (error) {
+        console.warn("Échec de l'enregistrement du SW :", error)
+      }
+    }
+  }, [])
+
+  // Fonction pour forcer la mise à jour
+  const updateApp = useCallback(() => {
+    if (registration?.waiting) {
+      registration.waiting.postMessage({ type: "SKIP_WAITING" })
+      window.location.reload()
+    }
+  }, [registration])
+
+  // Initialisation du hook
   useEffect(() => {
-    // Vérifier si l'app est installée
-    const checkInstalled = () => {
-      const isStandalone = window.matchMedia("(display-mode: standalone)").matches
-      const isInWebApp = (window.navigator as any).standalone === true
-      setIsInstalled(isStandalone || isInWebApp)
-    }
-
-    // Vérifier le statut en ligne
-    const updateOnlineStatus = () => {
-      setIsOnline(navigator.onLine)
-    }
-
-    // Gérer l'événement d'installation
-    const handleBeforeInstallPrompt = (e: Event) => {
-      e.preventDefault()
-      setCanInstall(true)
-
-      const promptInstall = async () => {
-        const beforeInstallPromptEvent = e as any
-        try {
-          await beforeInstallPromptEvent.prompt()
-          const { outcome } = await beforeInstallPromptEvent.userChoice
-
-          if (outcome === "accepted") {
-            setCanInstall(false)
-          }
-        } catch (error) {
-          console.warn("Install prompt failed:", error)
-        }
-      }
-
-      setInstallPrompt(() => promptInstall)
-    }
-
-    // Gérer l'installation réussie
-    const handleAppInstalled = () => {
-      setIsInstalled(true)
-      setCanInstall(false)
-      setInstallPrompt(null)
-    }
-
-    // Enregistrer le Service Worker avec gestion d'erreur améliorée
-    const registerSW = async () => {
-      if ("serviceWorker" in navigator && typeof window !== "undefined") {
-        try {
-          // Vérifier d'abord si on est en production ou si le SW existe
-          const isProduction = process.env.NODE_ENV === "production"
-
-          if (!isProduction) {
-            console.log("Service Worker registration skipped in development")
-            return
-          }
-
-          // Essayer de récupérer le fichier SW pour vérifier qu'il existe
-          const swResponse = await fetch("/sw.js", {
-            method: "HEAD",
-            cache: "no-cache",
-          })
-
-          if (!swResponse.ok) {
-            console.warn("Service Worker file not found, skipping registration")
-            return
-          }
-
-          const reg = await navigator.serviceWorker.register("/sw.js", {
-            scope: "/",
-            updateViaCache: "none",
-          })
-
-          setRegistration(reg)
-
-          // Vérifier les mises à jour
-          reg.addEventListener("updatefound", () => {
-            const newWorker = reg.installing
-            if (newWorker) {
-              newWorker.addEventListener("statechange", () => {
-                if (newWorker.state === "installed" && navigator.serviceWorker.controller) {
-                  setUpdateAvailable(true)
-                }
-              })
-            }
-          })
-
-          console.log("Service Worker registered successfully")
-        } catch (error) {
-          console.warn("Service Worker registration failed:", error)
-          // Ne pas bloquer l'application si le SW échoue
-        }
-      }
-    }
-
     checkInstalled()
     updateOnlineStatus()
 
-    // Délai pour éviter les erreurs de timing
-    setTimeout(() => {
+    const timeout = setTimeout(() => {
       registerSW()
     }, 1000)
 
-    // Event listeners
     window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt)
     window.addEventListener("appinstalled", handleAppInstalled)
     window.addEventListener("online", updateOnlineStatus)
     window.addEventListener("offline", updateOnlineStatus)
 
     return () => {
+      clearTimeout(timeout)
       window.removeEventListener("beforeinstallprompt", handleBeforeInstallPrompt)
       window.removeEventListener("appinstalled", handleAppInstalled)
       window.removeEventListener("online", updateOnlineStatus)
       window.removeEventListener("offline", updateOnlineStatus)
     }
-  }, [])
-
-  const updateApp = () => {
-    if (registration && registration.waiting) {
-      registration.waiting.postMessage({ type: "SKIP_WAITING" })
-      window.location.reload()
-    }
-  }
+  }, [checkInstalled, updateOnlineStatus, handleBeforeInstallPrompt, handleAppInstalled, registerSW])
 
   return {
     isInstalled,
