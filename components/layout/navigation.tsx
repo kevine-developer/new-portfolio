@@ -11,7 +11,7 @@ import Image from "next/image";
 
 const navItems = [
   { href: "#accueil", label: "Accueil" },
-    { href: "#alternance", label: "Alternance" },
+  { href: "#alternance", label: "Alternance" },
   { href: "#competences", label: "Compétences" },
   { href: "#projets", label: "Projets" },
   { href: "#parcours", label: "Parcours" },
@@ -21,6 +21,7 @@ const navItems = [
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeHash, setActiveHash] = useState<string>("");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,25 +31,35 @@ export function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleNavClick = (href: string) => {
-    setIsOpen(false);
+useEffect(() => {
+  const handleScroll = () => {
+    const scrollPosition = window.scrollY + window.innerHeight / 2;
 
-    // Wait for menu to close before scrolling
-    setTimeout(() => {
-      const element = document.querySelector(href);
-      if (element) {
-        const navHeight = 80; // Height of fixed navbar
-        const elementPosition =
-          element.getBoundingClientRect().top + window.pageYOffset;
-        const offsetPosition = elementPosition - navHeight;
+    let currentSection = "";
 
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth",
-        });
+    for (const item of navItems) {
+      const section = document.querySelector(item.href);
+      if (section) {
+        const rect = section.getBoundingClientRect();
+        const top = rect.top + window.scrollY;
+        const bottom = top + section.clientHeight;
+
+        if (scrollPosition >= top && scrollPosition < bottom) {
+          currentSection = item.href;
+          break;
+        }
       }
-    }, 100);
+    }
+
+    setActiveHash(currentSection);
   };
+
+  window.addEventListener("scroll", handleScroll);
+  handleScroll(); // Initial call
+
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
+
 
   return (
     <motion.nav
@@ -57,44 +68,37 @@ export function Navigation() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         scrolled
-          ? "bg-background/80 backdrop-blur-md border-b border-border shadow-sm"
+          ? "bg-background/80 backdrop-blur-md border-b border-border border-gray-400/80 shadow-sm"
           : "bg-transparent"
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2 }}
-          >
+      
             <Link
               href="/"
               className="text-xl sm:text-2xl font-bold text-foreground hover:text-primary transition-colors"
             >
-                <Image src="/logoTwo.png" alt="Logo"  width={150}   height={80} />
+              <Image src="/logoTwo.webp" alt="LogoHeader" loading="lazy" width={150} height={80} className="w-full h-8 sm:h-5 md:h-6 lg:h-8 object-cover"/>
             </Link>
-          </motion.div>
+        
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-1">
-            {navItems.map((item, index) => (
-              <motion.div
-                key={item.href}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 + index * 0.1 }}
-              >
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
-                  onClick={() => handleNavClick(item.href)}
-                >
-                  {item.label}
-                </Button>
-              </motion.div>
+          <div className="hidden lg:flex gap-2 items-center space-x-1">
+            {navItems.map((item, index) => (         
+                    <Link
+                     key={item.href}
+                      href={item.href}
+                      className={cn(
+                        "text-slate-300 hover:text-emerald-400 transition-colors font-medium text-sm lg:text-base",
+                        activeHash === item.href
+                          ? "text-primary font-semibold text-emerald-400"
+                          : "text-muted-foreground"
+                      )}
+                    >
+                      {item.label}
+                    </Link>
             ))}
           </div>
 
@@ -104,7 +108,7 @@ export function Navigation() {
             <Button
               variant="ghost"
               size="sm"
-              className="lg:hidden text-foreground hover:bg-muted/50"
+              className="lg:hidden text-foreground hover:bg-muted/50 cursor-pointer"
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
             >
@@ -136,16 +140,22 @@ export function Navigation() {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
+                       whileHover={{ y: -2 }}
                   >
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="w-full justify-start text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
-                      onClick={() => handleNavClick(item.href)}
+                    <Link
+                      href={item.href}
+                      className={cn(
+                        "w-full px-3 py-2 rounded-md text-left text-sm font-medium transition-colors duration-200",
+                        "hover:text-primary hover:bg-muted/50",
+                        activeHash === item.href
+                          ? "text-primary font-semibold text-emerald-400"
+                          : "text-muted-foreground"
+                      )}
                     >
                       {item.label}
-                    </Button>
+                    </Link>
                   </motion.div>
+                  
                 ))}
               </div>
             </div>

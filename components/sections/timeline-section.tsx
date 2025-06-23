@@ -28,7 +28,7 @@ function TimelineItemComponent({ item, index }: TimelineItemProps) {
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.2 }}
-      className="relative flex items-start space-x-4 sm:space-x-6"
+      className="relative flex items-start space-x-4 sm:space-x-6 w-full"
     >
       {/* Timeline dot */}
       <div className="flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 bg-slate-900 border-2 border-slate-700 rounded-full flex items-center justify-center relative z-10">
@@ -36,8 +36,8 @@ function TimelineItemComponent({ item, index }: TimelineItemProps) {
       </div>
 
       {/* Content */}
-      <AnimatedCard delay={index * 0.1} className="flex-1">
-        <CardContent className="p-4 md:p-6 md:w-[40em]">
+      <AnimatedCard delay={index * 0.1} className="flex-1   ">
+        <CardContent className=" p-4 md:p-6 md:w-auto ">
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3 space-y-2 sm:space-y-0">
             <div className="flex-1">
               <h3 className="text-lg sm:text-xl font-semibold text-white mb-1">{item.title}</h3>

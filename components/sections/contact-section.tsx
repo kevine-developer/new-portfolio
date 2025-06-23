@@ -73,7 +73,6 @@ export function ContactSection() {
 
     setFormData({ name: "", email: "", subject: "", message: "" })
     setIsSubmitting(false)
-
     alert("Message envoyé ! Je vous réponds sous 24h 🚀")
   }
 

@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     siteName: "Kevine.dev",
     images: [
       {
-        url: "/logoPwa.png",
+        url: "/logoPwa.webp",
         width: 1200,
         height: 630,
         alt: "Kevine Narson YVES - Développeur Web et mobile",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Kevine Narson YVES - Développeur Web et mobile",
     description: "Portfolio de Kevine Narson YVES, développeur web et mobile en recherche d'alternance",
-    images: ["/logoPwa.png"],
+    images: ["/logoPwa.webp"],
     creator: "@kevine_dev",
   },
   robots: {

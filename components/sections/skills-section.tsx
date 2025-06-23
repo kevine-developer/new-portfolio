@@ -69,7 +69,7 @@ export function SkillsSection() {
 
   if (error) {
     return (
-          <Section id="competences" containerSize="lg">
+          <Section id="parcours" containerSize="lg">
         <SectionHeader
           title="Stack Technique"
           highlight="Technique"
@@ -83,7 +83,7 @@ export function SkillsSection() {
   }
 
   return (
-        <Section id="competences" containerSize="lg">
+        <Section id="parcours" containerSize="lg">
       <SectionHeader
         title="Stack Technique"
         highlight="Technique"
