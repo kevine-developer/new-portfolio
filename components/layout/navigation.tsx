@@ -11,7 +11,7 @@ import Image from "next/image";
 
 const navItems = [
   { href: "#accueil", label: "Accueil" },
-    { href: "#alternance", label: "Alternance" },
+  { href: "#alternance", label: "Alternance" },
   { href: "#competences", label: "Compétences" },
   { href: "#projets", label: "Projets" },
   { href: "#parcours", label: "Parcours" },
@@ -21,6 +21,7 @@ const navItems = [
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeHash, setActiveHash] = useState<string>("");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,25 +31,35 @@ export function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleNavClick = (href: string) => {
-    setIsOpen(false);
+useEffect(() => {
+  const handleScroll = () => {
+    const scrollPosition = window.scrollY + window.innerHeight / 2;
 
-    // Wait for menu to close before scrolling
-    setTimeout(() => {
-      const element = document.querySelector(href);
-      if (element) {
-        const navHeight = 80; // Height of fixed navbar
-        const elementPosition =
-          element.getBoundingClientRect().top + window.pageYOffset;
-        const offsetPosition = elementPosition - navHeight;
+    let currentSection = "";
 
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth",
-        });
+    for (const item of navItems) {
+      const section = document.querySelector(item.href);
+      if (section) {
+        const rect = section.getBoundingClientRect();
+        const top = rect.top + window.scrollY;
+        const bottom = top + section.clientHeight;
+
+        if (scrollPosition >= top && scrollPosition < bottom) {
+          currentSection = item.href;
+          break;
+        }
       }
-    }, 100);
+    }
+
+    setActiveHash(currentSection);
   };
+
+  window.addEventListener("scroll", handleScroll);
+  handleScroll(); // Initial call
+
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
+
 
   return (
     <motion.nav
@@ -73,12 +84,12 @@ export function Navigation() {
               href="/"
               className="text-xl sm:text-2xl font-bold text-foreground hover:text-primary transition-colors"
             >
-                <Image src="/logoTwo.webp" alt="Logo"  width={150}   height={80}  />
+              <Image src="/logoTwo.webp" alt="Logo" width={150} height={80} />
             </Link>
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-1">
+          <div className="hidden lg:flex gap-2 items-center space-x-1">
             {navItems.map((item, index) => (
               <motion.div
                 key={item.href}
@@ -86,11 +97,18 @@ export function Navigation() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 + index * 0.1 }}
               >
-                <Link href={item.href} className="text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
+                <Link
+                  href={item.href}
+                  className={cn(
+                    "px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200",
+                    "hover:text-primary hover:bg-muted/50",
+                    activeHash === item.href
+                      ? "text-primary font-semibold text-emerald-400"
+                      : "text-muted-foreground"
+                  )}
                 >
                   {item.label}
                 </Link>
-                
               </motion.div>
             ))}
           </div>
@@ -134,8 +152,15 @@ export function Navigation() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
                   >
-                    <Link href={item.href}
-                      className="w-full justify-start text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors cursor-pointer"
+                    <Link
+                      href={item.href}
+                      className={cn(
+                        "w-full px-3 py-2 rounded-md text-left text-sm font-medium transition-colors duration-200",
+                        "hover:text-primary hover:bg-muted/50",
+                        activeHash === item.href
+                          ? "text-primary font-semibold text-emerald-400"
+                          : "text-muted-foreground"
+                      )}
                     >
                       {item.label}
                     </Link>
