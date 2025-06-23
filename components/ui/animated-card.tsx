@@ -27,7 +27,6 @@ export function AnimatedCard({ children, className, delay = 0, hover = true, dir
       whileInView={{ opacity: 1, x: 0, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay, duration: 0.5 }}
-      whileHover={hover ? { y: -5, scale: 1.02 } : undefined}
       className="group w-full"
     >
       <Card
