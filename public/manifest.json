@@ -84,7 +84,7 @@
       "url": "/#projets",
       "icons": [
         {
-          "src": "/icons/projects-icon.png",
+          "src": "/icons/icon-96x96.png",
           "sizes": "96x96"
         }
       ]
@@ -96,7 +96,7 @@
       "url": "/#contact",
       "icons": [
         {
-          "src": "/icons/contact-icon.png",
+          "src": "/icons/icon-96x96.png",
           "sizes": "96x96"
         }
       ]
@@ -108,7 +108,7 @@
       "url": "/devengalere",
       "icons": [
         {
-          "src": "/icons/devengalere-icon.png",
+          "src": "/icons/icon-96x96.png",
           "sizes": "96x96"
         }
       ]
