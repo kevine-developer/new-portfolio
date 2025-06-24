@@ -15,12 +15,11 @@ export const metadata = {
 
 export default function ConfidentialitePage() {
   return (
-    <div
-      className={`min-h-screen transition-all duration-500`}
+    <main tabIndex={1}
+      className={`min-h-screen transition-all duration-500 bg-slate-950 text-white  relative overflow-hidden`}
     >
-      <div className="bg-slate-950 text-white min-h-screen relative overflow-hidden">
-          <Section>
-            <Container size="md">
+          <Section containerSize="md">
+        
               <div className="mb-8">
                 <Button variant="ghost" asChild className="mb-4">
                   <Link
@@ -388,9 +387,8 @@ export default function ConfidentialitePage() {
                   </CardContent>
                 </Card>
               </div>
-            </Container>
+           
           </Section>
-        </div>
-      </div>
+      </main>
   );
 }
