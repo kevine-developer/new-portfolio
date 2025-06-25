@@ -15,7 +15,7 @@ export const metadata = {
 
 export default function ConfidentialitePage() {
   return (
-    <main tabIndex={1}
+    <main 
       className={`min-h-screen transition-all duration-500 bg-slate-950 text-white  relative overflow-hidden`}
     >
           <Section containerSize="md">
