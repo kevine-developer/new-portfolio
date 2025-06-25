@@ -108,7 +108,7 @@ export function Footer() {
             transition={{ delay: 0.3 }}
             className="text-sm text-slate-500"
           >
-            © 2025 kevine.dev • Développeur Fullstack JS en recherche
+            © 2025 kevine.dev • Développeur Fullstack web et mobile en recherche
             d'alternance
           </motion.p>
 
