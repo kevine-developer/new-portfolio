@@ -17,7 +17,7 @@ import { CMSStatus } from "@/components/ui/cms-status"
 export default function ModernPortfolio() {
 
   return (
-    <main tabIndex={1} className={`min-h-screen transition-all duration-500 bg-slate-950 text-white relative `}>
+    <main tabIndex={1} className="min-h-screen transition-all duration-500 bg-slate-950 text-white relative overflow-hidden ">
     
         {/* Status Components */}
         <PWAStatus />
