@@ -24,9 +24,7 @@ function SkillCard({ skill, index }: SkillCardProps) {
               <h3 className="font-semibold text-white text-sm sm:text-base truncate">{skill.name}</h3>
             </div>
           </div>
-          <div className="text-right flex-shrink-0">
-            <div className="text-xs sm:text-sm font-medium text-emerald-400">{skill.level}%</div>
-          </div>
+       
         </div>
 
         <div className="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
