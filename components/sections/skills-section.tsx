@@ -26,16 +26,6 @@ function SkillCard({ skill, index }: SkillCardProps) {
           </div>
        
         </div>
-
-        <div className="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
-          <motion.div
-            initial={{ width: 0 }}
-            whileInView={{ width: `${skill.level}%` }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: index * 0.1 }}
-            className={`h-full bg-gradient-to-r ${skill.color} rounded-full`}
-          />
-        </div>
       </CardContent>
     </AnimatedCard>
   )
