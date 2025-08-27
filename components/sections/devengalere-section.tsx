@@ -22,7 +22,7 @@ export function DevEngalereSection() {
               {/* Content */}
               <div className="space-y-6">
                 <div className="flex items-center space-x-4 ">
-               
+                  <div className="text-3xl sm:text-4xl"></div>
                   <div>
                     <h3 className="text-2xl sm:text-3xl font-bold text-white">
                       DevEnGalère
@@ -34,10 +34,10 @@ export function DevEngalereSection() {
                 </div>
 
                 <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-                  Créateur de contenu tech humoristique qui rassemble
+                  Créateur de contenu tech humoristique qui rassemble{" "}
                   <span className="text-yellow-400 font-semibold">
                     plusieurs développeurs
-                  </span>
+                  </span>{" "}
                   sur TikTok et Instagram. Je vulgarise les concepts techniques
                   avec humour, parce qu'un dev qui sait rire de ses bugs, c'est
                   un dev qui sait les résoudre ! 
@@ -128,8 +128,8 @@ export function DevEngalereSection() {
                   <div className="font-mono text-xs sm:text-sm space-y-2">
                     <div className="text-slate-300">
                       <span className="text-purple-400">function</span>
-                      <span className="text-blue-400"> debugCode </span>
-                      () 
+                      <span className="text-blue-400">debugCode</span>
+                      () {"{"}
                     </div>
                     <div className="text-slate-300 ml-4">
                       <span className="text-green-400">console.log</span>(
