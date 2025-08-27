@@ -1,4 +1,4 @@
-import { Button } from "../../ui/button";
+import { Button } from "../../../ui/button";
 import { Play, Users } from "lucide-react";
 
 function Cta() {

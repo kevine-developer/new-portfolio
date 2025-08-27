@@ -3,7 +3,6 @@
 import { motion, AnimatePresence } from "framer-motion"
 import { Wifi, WifiOff, Download, RefreshCw } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
 import { usePWA } from "@/hooks/use-pwa"
 
 export default function PWAStatus() {
@@ -11,21 +10,6 @@ export default function PWAStatus() {
 
   return (
     <div className="fixed top-20 right-4 z-40 space-y-2">
-      {/* Statut d'installation */}
-      <AnimatePresence>
-        {isInstalled && (
-          <motion.div initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 100 }}>
-            <Badge
-              variant="secondary"
-              className="flex items-center space-x-1 bg-emerald-500/20 text-emerald-400 border-emerald-500/30"
-            >
-              <Download className="w-3 h-3" />
-              <span>App installée</span>
-            </Badge>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
       {/* Mise à jour disponible */}
       <AnimatePresence>
         {updateAvailable && (

@@ -10,7 +10,7 @@ INSERT INTO skills (name, level, color, icon, category, order_index) VALUES
 ('Node.js', 75, 'from-green-400 to-green-600', '🟢', 'backend', 6),
 ('Supabase', 85, 'from-emerald-400 to-emerald-600', '🗄️', 'backend', 7),
 ('React Native', 75, 'from-purple-400 to-purple-600', '📱', 'mobile', 8),
-('UX/UI Design', 80, 'from-pink-400 to-pink-600', '✨', 'tools', 9),
+('UX/UI Design', 80, 'from-pink-400 to-pink-600', ' ', 'tools', 9),
 ('Éco-conception', 90, 'from-green-500 to-emerald-500', '🌱', 'tools', 10),
 ('Accessibilité', 85, 'from-indigo-400 to-indigo-600', '♿', 'tools', 11),
 ('Git/GitHub', 85, 'from-gray-500 to-gray-700', '🔀', 'tools', 12);

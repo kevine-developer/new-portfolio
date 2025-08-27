@@ -1,19 +1,91 @@
-import type { Skill, Project, TimelineItem, SocialLink } from "@/types/"
+import type { Skill, Project, TimelineItem, SocialLink } from "@/types/";
 
 export const SKILLS: Skill[] = [
-  { name: "React", level: 95, color: "from-blue-400 to-blue-600", icon: "⚛️", category: "frontend" },
-  { name: "Next.js", level: 90, color: "from-gray-400 to-gray-600", icon: "▲", category: "frontend" },
-  { name: "TypeScript", level: 85, color: "from-blue-500 to-blue-700", icon: "📘", category: "frontend" },
-  { name: "Tailwind CSS", level: 90, color: "from-cyan-400 to-cyan-600", icon: "🎨", category: "frontend" },
-  { name: "PHP/Laravel", level: 80, color: "from-red-400 to-red-600", icon: "🔧", category: "backend" },
-  { name: "Node.js", level: 75, color: "from-green-400 to-green-600", icon: "🟢", category: "backend" },
-  { name: "Supabase", level: 85, color: "from-emerald-400 to-emerald-600", icon: "🗄️", category: "backend" },
-  { name: "React Native", level: 75, color: "from-purple-400 to-purple-600", icon: "📱", category: "mobile" },
-  { name: "UX/UI Design", level: 80, color: "from-pink-400 to-pink-600", icon: "✨", category: "tools" },
-  { name: "Éco-conception", level: 90, color: "from-green-500 to-emerald-500", icon: "🌱", category: "tools" },
-  { name: "Accessibilité", level: 85, color: "from-indigo-400 to-indigo-600", icon: "♿", category: "tools" },
-  { name: "Git/GitHub", level: 85, color: "from-gray-500 to-gray-700", icon: "🔀", category: "tools" },
-]
+  {
+    name: "React",
+    level: 95,
+    color: "from-blue-400 to-blue-600",
+    icon: "⚛️",
+    category: "frontend",
+  },
+  {
+    name: "Next.js",
+    level: 90,
+    color: "from-gray-400 to-gray-600",
+    icon: "▲",
+    category: "frontend",
+  },
+  {
+    name: "TypeScript",
+    level: 85,
+    color: "from-blue-500 to-blue-700",
+    icon: "📘",
+    category: "frontend",
+  },
+  {
+    name: "Tailwind CSS",
+    level: 90,
+    color: "from-cyan-400 to-cyan-600",
+    icon: "🎨",
+    category: "frontend",
+  },
+  {
+    name: "PHP/Laravel",
+    level: 80,
+    color: "from-red-400 to-red-600",
+    icon: "🔧",
+    category: "backend",
+  },
+  {
+    name: "Node.js",
+    level: 75,
+    color: "from-green-400 to-green-600",
+    icon: "🟢",
+    category: "backend",
+  },
+  {
+    name: "Supabase",
+    level: 85,
+    color: "from-emerald-400 to-emerald-600",
+    icon: "🗄️",
+    category: "backend",
+  },
+  {
+    name: "React Native",
+    level: 75,
+    color: "from-purple-400 to-purple-600",
+    icon: "📱",
+    category: "mobile",
+  },
+  {
+    name: "UX/UI Design",
+    level: 80,
+    color: "from-pink-400 to-pink-600",
+    icon: " ",
+    category: "tools",
+  },
+  {
+    name: "Éco-conception",
+    level: 90,
+    color: "from-green-500 to-emerald-500",
+    icon: "🌱",
+    category: "tools",
+  },
+  {
+    name: "Accessibilité",
+    level: 85,
+    color: "from-indigo-400 to-indigo-600",
+    icon: "♿",
+    category: "tools",
+  },
+  {
+    name: "Git/GitHub",
+    level: 85,
+    color: "from-gray-500 to-gray-700",
+    icon: "🔀",
+    category: "tools",
+  },
+];
 
 export const PROJECTS: Project[] = [
   {
@@ -64,7 +136,7 @@ export const PROJECTS: Project[] = [
     metrics: "10k+ followers, 500k+ vues",
     featured: true,
   },
-]
+];
 
 export const TIMELINE: TimelineItem[] = [
   {
@@ -72,7 +144,8 @@ export const TIMELINE: TimelineItem[] = [
     date: "Oct 2025 - Oct 2026",
     title: "Concepteur Développeur d'Applications",
     company: "Simplon",
-    description: "Formation RNCP 6 en alternance - Spécialisation développement fullstack JavaScript",
+    description:
+      "Formation RNCP 6 en alternance - Spécialisation développement fullstack JavaScript",
     type: "formation",
     status: "🎯 En cours",
     icon: "🎓",
@@ -82,7 +155,8 @@ export const TIMELINE: TimelineItem[] = [
     date: "2024",
     title: "Développeur Web - RNCP 5",
     company: "OpenClassrooms",
-    description: "Formation certifiante validée avec mention. Projets React, Node.js, et bases de données.",
+    description:
+      "Formation certifiante validée avec mention. Projets React, Node.js, et bases de données.",
     type: "formation",
     status: "✅ Validé avec mention",
     icon: "📚",
@@ -92,7 +166,8 @@ export const TIMELINE: TimelineItem[] = [
     date: "2024",
     title: "Développeur Freelance",
     company: "TeloLabz & Clients divers",
-    description: "Développement d'applications web et mobile sur mesure. Gestion de projets en autonomie complète.",
+    description:
+      "Développement d'applications web et mobile sur mesure. Gestion de projets en autonomie complète.",
     type: "experience",
     status: "💼 15+ projets réalisés",
     icon: "💻",
@@ -102,7 +177,8 @@ export const TIMELINE: TimelineItem[] = [
     date: "2024",
     title: "Lead Developer",
     company: "Easytri (Projet pro)",
-    description: "Conception et développement complet d'une app mobile de tri sélectif avec IA.",
+    description:
+      "Conception et développement complet d'une app mobile de tri sélectif avec IA.",
     type: "experience",
     status: "🚀 5k+ utilisateurs",
     icon: "📱",
@@ -112,20 +188,46 @@ export const TIMELINE: TimelineItem[] = [
     date: "2023 - Présent",
     title: "Créateur de Contenu Tech",
     company: "DevEnGalère",
-    description: "Création de contenu éducatif et humoristique sur le développement web.",
+    description:
+      "Création de contenu éducatif et humoristique sur le développement web.",
     type: "projet",
     status: "🔥 10k+ followers",
     icon: "🎬",
   },
-]
+];
 
 export const SOCIAL_LINKS: SocialLink[] = [
-  { name: "GitHub", url: "https://github.com/kevine", icon: "Github", color: "hover:text-gray-400" },
-  { name: "LinkedIn", url: "https://linkedin.com/in/kevine-dev", icon: "Linkedin", color: "hover:text-blue-400" },
-  { name: "TikTok", url: "https://tiktok.com/@devengalere", icon: "Music", color: "hover:text-pink-400" },
-  { name: "Instagram", url: "https://instagram.com/devengalere", icon: "Instagram", color: "hover:text-purple-400" },
-  { name: "Email", url: "mailto:kevine.dev@gmail.com", icon: "Mail", color: "hover:text-emerald-400" },
-]
+  {
+    name: "GitHub",
+    url: "https://github.com/kevine",
+    icon: "Github",
+    color: "hover:text-gray-400",
+  },
+  {
+    name: "LinkedIn",
+    url: "https://linkedin.com/in/kevine-dev",
+    icon: "Linkedin",
+    color: "hover:text-blue-400",
+  },
+  {
+    name: "TikTok",
+    url: "https://tiktok.com/@devengalere",
+    icon: "Music",
+    color: "hover:text-pink-400",
+  },
+  {
+    name: "Instagram",
+    url: "https://instagram.com/devengalere",
+    icon: "Instagram",
+    color: "hover:text-purple-400",
+  },
+  {
+    name: "Email",
+    url: "mailto:kevine.dev@gmail.com",
+    icon: "Mail",
+    color: "hover:text-emerald-400",
+  },
+];
 
 export const TYPING_TEXTS = [
   "Développeur Fullstack JS",
@@ -133,7 +235,7 @@ export const TYPING_TEXTS = [
   "Étudiant CDA chez Simplon",
   "Passionné d'éco-conception",
   "Prêt pour l'alternance",
-]
+];
 
 export const TESTIMONIALS = [
   {
@@ -163,4 +265,4 @@ export const TESTIMONIALS = [
       "Kevine a su transformer notre vision en une app fonctionnelle et intuitive. Son expertise technique et sa créativité ont été déterminantes pour le succès du projet.",
     avatar: "/placeholder.svg?height=60&width=60",
   },
-]
+];

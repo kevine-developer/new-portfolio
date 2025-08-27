@@ -12,17 +12,10 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { Container } from "@/components/ui/container";
-import { GradientText } from "@/components/ui/gradient-text";
 import { useSocialLinks } from "@/hooks/use-cms-data";
 import Image from "next/image";
 
-/* const socialLinks = [
-  { icon: Github, url: "https://github.com/kevine", label: "GitHub" },
-  { icon: Linkedin, url: "https://linkedin.com/in/kevine-dev", label: "LinkedIn" },
-  { icon: Music, url: "https://tiktok.com/@devengalere", label: "TikTok" },
-  { icon: Instagram, url: "https://instagram.com/devengalere", label: "Instagram" },
-  { icon: Mail, url: "mailto:kevine.dev@gmail.com", label: "Email" },
-] */
+
 const iconMap: Record<string, React.ElementType> = {
   Github,
   Linkedin,
