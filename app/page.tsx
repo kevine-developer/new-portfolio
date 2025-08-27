@@ -6,12 +6,12 @@ import { HeroSection } from "@/components/HeroSection/hero-section"
 import { SkillsSection } from "@/components/sections/skills-section"
 import { ProjectsSection } from "@/components/sections/projects-section"
 import { TimelineSection } from "@/components/sections/timeline-section"
-import { DevEngalereSection } from "@/components/Devengalere-section/devengalere-section"
 import { AlternanceSection } from "@/components/Alternance-section/alternance-section"
 import { ContactSection } from "@/components/sections/contact-section"
 import PWAInstallPrompt from "@/components/pwa-install-prompt"
 import PWAStatus from "@/components/pwa-status"
 import { CMSStatus } from "@/components/ui/cms-status"
+import DevEngalereSection from "@/components/Devengalere-section/devengalereSection"
 
 
 export default function ModernPortfolio() {
