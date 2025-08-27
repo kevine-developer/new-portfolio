@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Mail, Play, Calendar, MapPin, Terminal, Coffee, Heart, ChevronDown, Download } from "lucide-react"
+import { Mail,  Calendar, MapPin, Terminal, Coffee, Heart, ChevronDown, Download } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Container } from "@/components/ui/container"
@@ -18,12 +18,12 @@ export function HeroSection() {
   const typedText = useTypingEffect(heroSettings.typing_texts)
 
   const floatingIcons = [
-    { icon: "⚛️", position: "top-0 right-4 sm:right-8", delay: 0 },
-    { icon: "🚀", position: "top-4 sm:top-8 left-0", delay: 0.5 },
-    { icon: "💚", position: "bottom-0 left-4 sm:left-8", delay: 1 },
-    { icon: "⚡", position: "bottom-4 sm:bottom-8 right-0", delay: 1.5 },
-    { icon: "🎨", position: "top-1/2 -left-4 sm:-left-8", delay: 2 },
-    { icon: "📱", position: "top-1/2 -right-4 sm:-right-8", delay: 2.5 },
+    { icon: "", position: "top-0 right-4 sm:right-8", delay: 0 },
+    { icon: "", position: "top-4 sm:top-8 left-0", delay: 0.5 },
+    { icon: "", position: "bottom-0 left-4 sm:left-8", delay: 1 },
+    { icon: "", position: "bottom-4 sm:bottom-8 right-0", delay: 1.5 },
+    { icon: "", position: "top-1/2 -left-4 sm:-left-8", delay: 2 },
+    { icon: "", position: "top-1/2 -right-4 sm:-right-8", delay: 2.5 },
   ]
 
   return (
