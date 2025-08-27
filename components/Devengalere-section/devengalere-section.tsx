@@ -31,7 +31,6 @@ export function DevEngalereSection() {
                 <Stats />
                 <Cta />
               </div>
-
               <CodeMock />
             </div>
           </CardContent>
