@@ -157,7 +157,7 @@ export function ContactSection() {
           <CardHeader className="pb-4">
             <CardTitle className="text-white text-lg sm:text-xl">Envoyez-moi un message</CardTitle>
             <CardDescription className="text-slate-400 text-sm sm:text-base">
-              Je vous réponds rapidement, promis ! ⚡
+              Je vous réponds rapidement, promis !
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -218,7 +218,7 @@ export function ContactSection() {
                   name="message"
                   value={formData.message}
                   onChange={handleInputChange}
-                  placeholder="Décrivez votre besoin, votre idée, ou simplement dites bonjour ! 👋"
+                  placeholder="Décrivez votre besoin, votre idée, ou simplement dites bonjour ! "
                   rows={4}
                   required
                   className="bg-slate-800/50 border-slate-700 text-white placeholder:text-slate-400 focus:border-emerald-500 resize-none text-sm sm:text-base"
