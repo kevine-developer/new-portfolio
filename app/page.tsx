@@ -13,7 +13,9 @@ import PWAStatus from "@/components/pwa-status";
 import { CMSStatus } from "@/components/ui/cms-status";
 import DevEngalereSection from "@/components/sections/DevengalereSection/devengalereSection";
 
+
 export default function ModernPortfolio() {
+
   return (
     <main
       tabIndex={1}
