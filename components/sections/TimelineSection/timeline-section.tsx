@@ -34,7 +34,7 @@ function TimelineItemComponent({ item, index }: TimelineItemProps) {
       {/* Timeline dot */}
       <div className="flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 bg-slate-900 border-2 border-slate-700 rounded-full flex items-center justify-center relative z-10">
        <Image
-        src={item.icon}
+        src={item.icon  || "/defaultImageProject.webp"}
         alt={item.title}
         width={50}
         height={50}
