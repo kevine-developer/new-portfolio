@@ -12,6 +12,11 @@ export const metadata = {
     "Mentions légales du portfolio de Kevine, développeur fullstack JS",
 };
 
+/**
+ * Renders the legal notice page for the portfolio website, displaying legal information, hosting details, intellectual property rights, liability disclaimers, data collection practices, and applicable law.
+ *
+ * The page includes a navigation button to return to the homepage, a section header, and a card containing the structured legal content. The last update date is shown at the bottom.
+ */
 export default function MentionsLegalesPage() {
   return (
     <main className="bg-slate-950 text-white min-h-screen relative overflow-hidden  transition-all duration-500">

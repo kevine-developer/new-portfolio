@@ -13,6 +13,11 @@ export const metadata = {
     "Politique de confidentialité et protection des données du portfolio de Kevine",
 };
 
+/**
+ * Renders the privacy policy page for the portfolio website, detailing data collection, usage, tools, GDPR rights, cookies, security measures, and contact information.
+ *
+ * The page is styled for a dark theme and includes badges for GDPR compliance, transparency, and minimal data collection. It provides comprehensive sections explaining the site's privacy practices and user rights.
+ */
 export default function ConfidentialitePage() {
   return (
     <main 

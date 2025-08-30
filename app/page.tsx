@@ -14,7 +14,12 @@ import PWAStatus from "@/components/pwa-status"
 import { CMSStatus } from "@/components/ui/cms-status"
 
 
-export default function ModernPortfolio() {
+/**
+   * Renders the main layout of the modern portfolio site, including navigation, status indicators, content sections, and footer.
+   *
+   * The main container is keyboard-focusable and styled for a dark theme with smooth transitions.
+   */
+  export default function ModernPortfolio() {
 
   return (
     <main tabIndex={1} className="min-h-screen transition-all duration-500 bg-slate-950 text-white relative overflow-hidden ">
