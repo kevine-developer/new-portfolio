@@ -8,7 +8,8 @@ import { CardContent } from "@/components/ui/card";
 import { useSkills } from "@/hooks/use-cms-data";
 import type { Skill } from "@/types/cms";
 import Image from "next/image";
-
+const defaultImageIcon =
+  "https://res.cloudinary.com/dhe585mze/image/upload/v1753542723/Photoroom-20250726_170936555_owiyd3.png";
 interface SkillCardProps {
   skill: Skill;
   index: number;
@@ -22,7 +23,7 @@ function SkillCard({ skill, index }: SkillCardProps) {
           <div className="flex items-center space-x-2 sm:space-x-3">
             {skill.icon && (
               <Image
-                src={skill.icon} 
+                src={skill.icon || defaultImageIcon}
                 alt={skill.name}
                 width={24}
                 height={24}
@@ -92,7 +93,7 @@ export function SkillsSection() {
       {loading ? (
         <SkillsLoading />
       ) : (
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6">
+        <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 sm:gap-6">
           {skills.map((skill, index) => (
             <SkillCard key={skill.id} skill={skill} index={index} />
           ))}
