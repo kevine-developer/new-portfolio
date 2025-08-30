@@ -1,4 +1,3 @@
-import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Card, CardContent } from "@/components/ui/card";
@@ -14,7 +13,7 @@ export const metadata = {
 
 export default function MentionsLegalesPage() {
   return (
-    <main className="bg-slate-950 text-white min-h-screen relative overflow-hidden  transition-all duration-500">
+    <main className="bg-slate-950 text-white min-h-screen relative overflow-hidden transition-all duration-500">
       <Section containerSize="md">
         <div className="mb-8">
           <Button variant="ghost" asChild className="mb-4">
@@ -92,8 +91,11 @@ export default function MentionsLegalesPage() {
                     strictement interdite sans l'accord écrit de Kevine.
                   </p>
                   <p>
-                    Les marques et logos mentionnés sur ce site appartiennent à
-                    leurs propriétaires respectifs.
+                    Les marques, visuels et logos des écoles, entreprises ou
+                    technologies éventuellement affichés sur ce site sont cités
+                    à titre illustratif ou informatif. Ils restent la propriété
+                    exclusive de leurs titulaires respectifs et ne sauraient en
+                    aucun cas être considérés comme appartenant à Kevine.
                   </p>
                 </div>
               </div>
