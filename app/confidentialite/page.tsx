@@ -117,7 +117,7 @@ export default function ConfidentialitePage() {
                         <div className="grid md:grid-cols-2 gap-4">
                           <div className="bg-slate-800/50 rounded-lg p-4">
                             <h4 className="font-medium text-white mb-2">
-                              📊 Analytics
+                               Analytics
                             </h4>
                             <p className="text-sm">
                               Comprendre comment améliorer l'expérience
@@ -127,7 +127,7 @@ export default function ConfidentialitePage() {
                           </div>
                           <div className="bg-slate-800/50 rounded-lg p-4">
                             <h4 className="font-medium text-white mb-2">
-                              📧 Contact
+                               Contact
                             </h4>
                             <p className="text-sm">
                               Répondre à vos messages et questions concernant
@@ -136,7 +136,7 @@ export default function ConfidentialitePage() {
                           </div>
                           <div className="bg-slate-800/50 rounded-lg p-4">
                             <h4 className="font-medium text-white mb-2">
-                              ⚡ Performance
+                               Performance
                             </h4>
                             <p className="text-sm">
                               Optimiser la vitesse et la stabilité du site selon
@@ -145,7 +145,7 @@ export default function ConfidentialitePage() {
                           </div>
                           <div className="bg-slate-800/50 rounded-lg p-4">
                             <h4 className="font-medium text-white mb-2">
-                              🎨 Personnalisation
+                               Personnalisation
                             </h4>
                             <p className="text-sm">
                               Sauvegarder vos préférences (thème, langue) pour
@@ -164,7 +164,7 @@ export default function ConfidentialitePage() {
                       <div className="text-slate-300 space-y-4">
                         <div className="bg-slate-800/50 rounded-lg p-4">
                           <h4 className="font-medium text-white mb-2">
-                            🔍 Google Analytics 4
+                             Google Analytics 4
                           </h4>
                           <p className="text-sm mb-2">
                             Analyse anonyme du trafic et du comportement des
@@ -177,7 +177,7 @@ export default function ConfidentialitePage() {
                         </div>
                         <div className="bg-slate-800/50 rounded-lg p-4">
                           <h4 className="font-medium text-white mb-2">
-                            📊 Vercel Analytics
+                             Vercel Analytics
                           </h4>
                           <p className="text-sm mb-2">
                             Métriques de performance et de vitesse du site.
@@ -285,7 +285,7 @@ export default function ConfidentialitePage() {
                         <div className="bg-slate-800/50 rounded-lg p-4 space-y-3">
                           <div>
                             <h4 className="font-medium text-white">
-                              🍪 Cookies essentiels
+                               Cookies essentiels
                             </h4>
                             <p className="text-sm text-slate-400">
                               Aucun cookie n'est déposé sans votre consentement
@@ -294,7 +294,7 @@ export default function ConfidentialitePage() {
                           </div>
                           <div>
                             <h4 className="font-medium text-white">
-                              💾 Stockage local
+                               Stockage local
                             </h4>
                             <p className="text-sm text-slate-400">
                               Préférences de thème stockées localement dans
@@ -304,7 +304,7 @@ export default function ConfidentialitePage() {
                           </div>
                           <div>
                             <h4 className="font-medium text-white">
-                              📊 Analytics
+                               Analytics
                             </h4>
                             <p className="text-sm text-slate-400">
                               Google Analytics utilise des cookies anonymes.
