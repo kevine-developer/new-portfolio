@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge"
 import { CardContent } from "@/components/ui/card"
 import type { TimelineItem } from "@/types"
 import { useTimelineItems } from "@/hooks/use-cms-data"
+import Image from "next/image"
 
 interface TimelineItemProps {
   item: TimelineItem
@@ -32,7 +33,12 @@ function TimelineItemComponent({ item, index }: TimelineItemProps) {
     >
       {/* Timeline dot */}
       <div className="flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 bg-slate-900 border-2 border-slate-700 rounded-full flex items-center justify-center relative z-10">
-        <span className="text-xl sm:text-2xl">{item.icon}</span>
+       <Image
+        src={item.icon}
+        alt={item.title}
+        width={50}
+        height={50}
+       />
       </div>
 
       {/* Content */}
