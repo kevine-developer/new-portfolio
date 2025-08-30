@@ -73,7 +73,7 @@ export function ContactSection() {
 
     setFormData({ name: "", email: "", subject: "", message: "" })
     setIsSubmitting(false)
-    alert("Message envoyé ! Je vous réponds sous 24h 🚀")
+    alert("Message envoyé ! Je vous réponds sous 24h ")
   }
 
   return (
@@ -81,7 +81,7 @@ export function ContactSection() {
       <SectionHeader
         title="Racontez-moi votre Projet"
         highlight="Projet"
-        subtitle="Une idée ? Un besoin ? Une alternance ? Je suis tout ouïe ! 👂"
+        subtitle="Une idée ? Un besoin ? Une alternance ? Je suis tout ouïe ! "
       />
 
       <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
