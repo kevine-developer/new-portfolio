@@ -12,20 +12,14 @@ import { Container } from "@/components/ui/container";
 import { GradientText } from "@/components/ui/gradient-text";
 import { useTypingEffect } from "@/hooks/use-typing-effect";
 import { useHeroSettings, useContactSettings } from "@/hooks/use-cms-data";
-import Image from "next/image";
-import {
-  FirebaseStudio,
-  GitHubIcon,
-  GitIcon,
-  JavaScriptIcon,
-  Linux,
-  ReactIcon,
-  Strapi,
-  TypeScriptIcon,
-} from "@/lib/iconHero";
 import CodeSnippet from "./ui/CodeSnippet";
 import InfoBadges from "./ui/InfoBadges";
 import CtaButtons from "./ui/CtaButtons";
+import FloatingTech from "./FloatingTech";
+import AvatarContainer from "./AvatarContainer";
+import TypingAnimation from "./TypingAnimation";
+import BackgroundBlobs from "./BackgroundBlobs";
+import { floatingIcons } from "./constantIcons";
 
 export function HeroSection() {
   const { data: heroSettings } = useHeroSettings();
@@ -33,14 +27,6 @@ export function HeroSection() {
 
   const typedText = useTypingEffect(heroSettings.typing_texts);
 
-  const floatingIcons = [
-    { icon: ReactIcon, position: "top-0 right-4 sm:right-8", delay: 0 },
-    { icon: TypeScriptIcon, position: "top-4 sm:top-8 left-0", delay: 0.5 },
-    { icon: FirebaseStudio, position: "bottom-0 left-4 sm:left-8", delay: 1 },
-    { icon: Strapi, position: "bottom-4 sm:bottom-8 right-0", delay: 1.5 },
-    { icon: GitIcon, position: "top-1/2 -left-4 sm:-left-8", delay: 2 },
-    { icon: Linux, position: "top-1/2 -right-4 sm:-right-8", delay: 2.5 },
-  ];
 
   return (
     <section
@@ -48,34 +34,7 @@ export function HeroSection() {
       className="min-h-screen flex items-center justify-center relative pt-10 sm:pt-10"
     >
       {/* Animated background blobs */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          animate={{
-            x: [0, 100, 0],
-            y: [0, -100, 0],
-            scale: [1, 1.2, 1],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "linear",
-          }}
-          className="absolute -top-40 -right-40 w-60 h-60 sm:w-80 sm:h-80 bg-gradient-to-br from-emerald-500/20 to-blue-500/20 rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{
-            x: [0, -150, 0],
-            y: [0, 100, 0],
-            scale: [1, 0.8, 1],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "linear",
-          }}
-          className="absolute -bottom-40 -left-40 w-72 h-72 sm:w-96 sm:h-96 bg-gradient-to-tr from-yellow-500/20 to-purple-500/20 rounded-full blur-3xl"
-        />
-      </div>
+     <BackgroundBlobs/>
 
       <Container>
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -121,22 +80,7 @@ export function HeroSection() {
               </motion.h1>
 
               {/* Typing animation */}
-              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-2 sm:space-y-0 sm:space-x-3 text-lg sm:text-xl md:text-2xl text-slate-300">
-                <Terminal className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-400 flex-shrink-0" />
-                <span className="font-mono text-center sm:text-left min-h-[1.5em] flex items-center">
-                  {typedText}
-                  <motion.span
-                    animate={{ opacity: [1, 0] }}
-                    transition={{
-                      duration: 0.8,
-                      repeat: Number.POSITIVE_INFINITY,
-                    }}
-                    className="text-emerald-400 ml-1"
-                  >
-                    |
-                  </motion.span>
-                </span>
-              </div>
+              <TypingAnimation typedText={typedText} />
             </div>
 
             {/* Description */}
@@ -166,45 +110,10 @@ export function HeroSection() {
             <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg mx-auto">
               {/* Main avatar container */}
               <div className="relative w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 mx-auto">
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-500 via-blue-500 to-purple-500 p-1">
-                  <div className="w-full h-full rounded-full bg-slate-950 flex items-center justify-center">
-                    <div className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl">
-                      <Image
-                        src="/logo.webp"
-                        alt="logo"
-                        loading="lazy"
-                        width={140}
-                        height={140}
-                        className="w-full h-25 sm:h-25 md:h-35 lg:h-45 object-cover"
-                      />
-                    </div>
-                  </div>
-                </div>
-
+                <AvatarContainer/>
                 {/* Floating tech icons */}
                 {floatingIcons.map((item, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 1 + item.delay, duration: 0.5 }}
-                    className={`absolute ${item.position} w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-slate-800/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg`}
-                  >
-                    <motion.span
-                      animate={{
-                        y: [0, -8, 0],
-                        rotate: [0, 10, -10, 0],
-                      }}
-                      transition={{
-                        duration: 3,
-                        repeat: Number.POSITIVE_INFINITY,
-                        delay: item.delay,
-                      }}
-                      className="text-base sm:text-lg md:text-xl"
-                    >
-                      {item.icon && <item.icon />}
-                    </motion.span>
-                  </motion.div>
+                  <FloatingTech key={index} data={item} />
                 ))}
               </div>
 
