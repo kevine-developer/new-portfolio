@@ -49,7 +49,7 @@ function SkillCard({ skill, index }: SkillCardProps) {
               )}
               {/* Skill Name with Modern Typography */}
               <div className="space-y-1">
-                <h3 className="font-bold text-white text-base sm:text-lg  truncate tracking-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400 transition-all duration-300">
+                <h3 className="font-bold text-white text-md  truncate tracking-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400 transition-all duration-300">
                   {skill.name}
                 </h3>
               </div>
@@ -66,15 +66,14 @@ function SkillsLoading() {
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6">
       {Array.from({ length: 8 }).map((_, index) => (
         <div key={index} className="animate-pulse">
-          <div className="bg-slate-800 rounded-lg p-4 sm:p-6">
+          <div className="bg-slate-800 rounded-lg p-2">
             <div className="flex items-center space-x-3 mb-4">
               <div className="w-8 h-8 bg-slate-700 rounded"></div>
               <div className="flex-1">
                 <div className="h-4 bg-slate-700 rounded mb-2"></div>
-                <div className="h-3 bg-slate-700 rounded w-1/2"></div>
+              
               </div>
             </div>
-            <div className="w-full h-2 bg-slate-700 rounded"></div>
           </div>
         </div>
       ))}
