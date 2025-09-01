@@ -79,7 +79,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                       aria-label="Voir le projet sur GitHub"
                       title="Voir le projet sur GitHub"
                     >
-                         <Github className="w-4 h-4 sm:w-5 sm:h-5" />
+                      <Github className="w-4 h-4 sm:w-5 sm:h-5" />
                     </Link>
                   </Button>
                 )}
@@ -118,7 +118,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         } order-last`}
       >
         <div className="space-y-3 sm:space-y-4">
-          <div className="flex items-baseline sm:items-center space-y-2 sm:space-y-0 sm:space-x-3">
+          <div className="flex items-baseline gap-1.5 sm:items-center space-y-2 sm:space-y-0 sm:space-x-3">
             <Badge
               variant="outline"
               className={`border-slate-700 bg-gradient-to-r ${project.color} bg-clip-text text-transparent font-semibold w-fit`}
