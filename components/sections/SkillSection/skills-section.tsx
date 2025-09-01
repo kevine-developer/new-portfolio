@@ -19,14 +19,8 @@ interface SkillCardProps {
 
 function SkillCard({ skill, index }: SkillCardProps) {
   return (
-    <AnimatedCard delay={index * 0.1}>
-      <CardContent className="relative p-1 group overflow-hidden border-none">
-        {/* Gradient Background Effect */}
-        <div className="absolute inset-0 border-none bg-gradient-to-br from-slate-800/50 via-slate-700/30 to-slate-900/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-        {/* Animated Border Glow */}
-        <div className="absolute inset-0 border-none bg-gradient-to-r from-blue-500/20 via-emerald-500/20 to-green-500/20 opacity-0 group-hover:opacity-100 transition-all duration-700 blur-sm -z-10" />
-
+    <AnimatedCard delay={index * 0.1} className="border-0 bg-transparent">
+      <CardContent className="relative p-1 group overflow-hidden ">
         {/* Content Container */}
         <div className="flex items-center justify-between ">
           <div className="flex items-center space-x-3 sm:space-x-4">
@@ -34,7 +28,7 @@ function SkillCard({ skill, index }: SkillCardProps) {
             {skill.icon && (
               <div className="relative group/icon">
                 {/* Icon Wrapper */}
-                <div className="relative bg-slate-800/80 backdrop-blur-sm p-3 rounded-xl border border-slate-600/50 group-hover:border-blue-500/50 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
+                <div className="relative bg-slate-800/80 backdrop-blur-sm p-3 rounded-xl  transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
                   <Image
                     src={skill.icon || defaultImageIcon}
                     alt={skill.name}
