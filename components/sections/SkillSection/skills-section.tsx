@@ -38,8 +38,8 @@ function SkillCard({ skill, index }: SkillCardProps) {
                   <Image
                     src={skill.icon || defaultImageIcon}
                     alt={skill.name}
-                    width={24}
-                    height={24}
+                    width={20}
+                    height={20}
                     className="w-4 h-4 sm:w-5 sm:h-5 filter drop-shadow-lg"
                   />
                 </div>
