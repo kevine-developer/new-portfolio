@@ -184,7 +184,7 @@ export default function ConfidentialitePage() {
                         </div>
                         <div className="bg-slate-800/50 rounded-lg p-4">
                           <h4 className="font-medium text-white mb-2">
-                            🗄️ Supabase (optionnel)
+                             Supabase (optionnel)
                           </h4>
                           <p className="text-sm mb-2">
                             Stockage sécurisé des messages de contact si activé.
@@ -319,7 +319,6 @@ export default function ConfidentialitePage() {
                         <p>Mesures de protection mises en place :</p>
                         <div className="grid md:grid-cols-3 gap-3">
                           <div className="bg-slate-800/50 rounded-lg p-3 text-center">
-                            <div className="text-2xl mb-2">🔒</div>
                             <h4 className="font-medium text-white text-sm">
                               HTTPS
                             </h4>
@@ -328,7 +327,6 @@ export default function ConfidentialitePage() {
                             </p>
                           </div>
                           <div className="bg-slate-800/50 rounded-lg p-3 text-center">
-                            <div className="text-2xl mb-2">🛡️</div>
                             <h4 className="font-medium text-white text-sm">
                               Headers
                             </h4>
@@ -337,7 +335,6 @@ export default function ConfidentialitePage() {
                             </p>
                           </div>
                           <div className="bg-slate-800/50 rounded-lg p-3 text-center">
-                            <div className="text-2xl mb-2">🔐</div>
                             <h4 className="font-medium text-white text-sm">
                               Validation
                             </h4>
