@@ -86,11 +86,7 @@ export function Footer() {
             transition={{ delay: 0.2 }}
             className="flex justify-center items-center space-x-2 text-slate-400 text-sm"
           >
-            <span>Fait avec</span>
-            <Heart className="w-4 h-4 text-red-400" />
-            <span>et beaucoup de</span>
-            <Coffee className="w-4 h-4 text-yellow-400" />
-            <span>par Kevine</span>
+            <span>par Kevine Developer</span>
           </motion.div>
 
           {/* Copyright */}
