@@ -1,17 +1,39 @@
-name: Ma première Action
-on: [push]
+name: CI - Portfolio
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
 jobs:
-  Explorer-Actions-Github:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - run: echo "🎉 La tâche a été automatiquement déclenchée par un événement ${{ github.event_name }}."
-      - run: echo "🐧 Cette tâche s'exécute maintenant sur un serveur ${{ runner.os }} hébergé par GitHub !"
-      - run: echo "🔎 Le nom de votre branche est ${{ github.ref }} et votre dépôt est ${{ github.repository }}."
-      - name: Récupérer le code du dépôt
+      - name: Checkout du code
         uses: actions/checkout@v4
-      - run: echo "💡 Le dépôt ${{ github.repository }} a été cloné sur le runner."
-      - run: echo "🖥️ Le `workflow` est maintenant prêt à tester votre code sur le runner."
-      - name: Lister les fichiers du dépôt
-        run: |
-          ls ${{ github.workspace }}
-      - run: echo "🍏 Le statut de cette tâche est ${{ job.status }}."
+
+      - name: Installer Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Installer pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+          run_install: false
+
+      - name: Installer les dépendances
+        run: pnpm install --frozen-lockfile
+
+      - name: Lancer les tests
+        run: pnpm test
+        continue-on-error: true
+
+      - name: Build du projet
+        run: pnpm build
